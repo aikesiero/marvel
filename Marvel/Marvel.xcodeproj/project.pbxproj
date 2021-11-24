@@ -16,6 +16,8 @@
 		9D8D0214274E597A008D89AD /* MarvelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8D0213274E597A008D89AD /* MarvelTests.swift */; };
 		9D8D021E274E597A008D89AD /* MarvelUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8D021D274E597A008D89AD /* MarvelUITests.swift */; };
 		9D8D0220274E597A008D89AD /* MarvelUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8D021F274E597A008D89AD /* MarvelUITestsLaunchTests.swift */; };
+		9D8D0235274EA7AE008D89AD /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8D0234274EA7AE008D89AD /* Log.swift */; };
+		9D8D0238274EA8E6008D89AD /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8D0237274EA8E6008D89AD /* DateExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		9D8D0219274E597A008D89AD /* MarvelUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarvelUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D8D021D274E597A008D89AD /* MarvelUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelUITests.swift; sourceTree = "<group>"; };
 		9D8D021F274E597A008D89AD /* MarvelUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		9D8D0234274EA7AE008D89AD /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		9D8D0237274EA8E6008D89AD /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +103,7 @@
 		9D8D01FB274E5978008D89AD /* Marvel */ = {
 			isa = PBXGroup;
 			children = (
+				9D8D0233274EA790008D89AD /* Utils */,
 				9D8D01FC274E5978008D89AD /* AppDelegate.swift */,
 				9D8D01FE274E5978008D89AD /* SceneDelegate.swift */,
 				9D8D0200274E5978008D89AD /* ViewController.swift */,
@@ -125,6 +130,15 @@
 				9D8D021F274E597A008D89AD /* MarvelUITestsLaunchTests.swift */,
 			);
 			path = MarvelUITests;
+			sourceTree = "<group>";
+		};
+		9D8D0233274EA790008D89AD /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				9D8D0234274EA7AE008D89AD /* Log.swift */,
+				9D8D0237274EA8E6008D89AD /* DateExtension.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -281,7 +295,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D8D0201274E5978008D89AD /* ViewController.swift in Sources */,
+				9D8D0238274EA8E6008D89AD /* DateExtension.swift in Sources */,
 				9D8D01FD274E5978008D89AD /* AppDelegate.swift in Sources */,
+				9D8D0235274EA7AE008D89AD /* Log.swift in Sources */,
 				9D8D01FF274E5978008D89AD /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
