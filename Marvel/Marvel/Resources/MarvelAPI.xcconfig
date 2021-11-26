@@ -1,0 +1,13 @@
+//
+//  MarvelApi.xcconfig
+//  Marvel
+//
+//  Created by Aike Fernández Roza on 24/11/21.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+API_PUBLIC_KEY = 686e0463477049ac47e2bf84a209d182
+API_PRIVATE_KEY = acea5daaaab6a95fb8295f9b35bc903f8a44d482
+API_BASE_URL = https:/$()/gateway.marvel.com
