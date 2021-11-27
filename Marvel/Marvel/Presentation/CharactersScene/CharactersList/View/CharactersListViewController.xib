@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CharactersListViewController" customModule="Marvel" customModuleProvider="target">
             <connections>
+                <outlet property="searchBarContainer" destination="uGm-fv-iEP" id="r6m-8h-3Lw"/>
                 <outlet property="view" destination="iN0-l3-epB" id="z8K-FX-MyD"/>
             </connections>
         </placeholder>
@@ -25,6 +26,13 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uGm-fv-iEP">
+                    <rect key="frame" x="0.0" y="44" width="414" height="56"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="56" id="IBW-3U-9fn"/>
+                    </constraints>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -33,6 +41,9 @@
                 <constraint firstItem="EO7-MK-KUP" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="V9P-cK-tVi"/>
                 <constraint firstItem="EO7-MK-KUP" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="gXo-av-jhM"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="EO7-MK-KUP" secondAttribute="trailing" id="kXK-GJ-huX"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="uGm-fv-iEP" secondAttribute="trailing" id="naP-TD-BM4"/>
+                <constraint firstItem="uGm-fv-iEP" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="tIB-es-5qg"/>
+                <constraint firstItem="uGm-fv-iEP" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="vmq-rM-1Up"/>
             </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="113.83928571428571"/>
         </view>

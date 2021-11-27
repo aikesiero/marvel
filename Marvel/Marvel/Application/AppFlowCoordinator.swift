@@ -19,7 +19,11 @@ final class AppFlowCoordinator {
     func start() {
 
         // TODO: Modificar
-        let viewController = CharactersListViewController()
+
+        let repo = CharactersRepository()
+        let useCaseFactory = CharactersUseCaseFactory(charactersGateway: repo)
+        let viewModel = CharactersListViewModel(charactersUseCaseFactory: useCaseFactory)
+        let viewController = CharactersListViewController.create(with: viewModel)
         navigationController.pushViewController(viewController, animated: false)
 
     }
