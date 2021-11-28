@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         appFlowCoordinator = AppFlowCoordinator(navigationController: navigationController)
         appFlowCoordinator?.start()
         window?.makeKeyAndVisible()
-
+        
         return true
     }
 

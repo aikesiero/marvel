@@ -19,6 +19,7 @@ final class CharactersRepository {
 
 extension CharactersRepository: CharactersGateway {
     func fetchCharacters() -> AnyPublisher<CharactersPage, CharactersGatewayError> {
+
         // TODO: provisional
         return Just(cPage)
             .setFailureType(to: CharactersGatewayError.self)

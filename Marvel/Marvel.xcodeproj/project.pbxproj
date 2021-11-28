@@ -34,6 +34,19 @@
 		9DB750AD2752988900F10473 /* Scheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB750AC2752988900F10473 /* Scheduler.swift */; };
 		9DB750AF2752996500F10473 /* UIColor+Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB750AE2752996500F10473 /* UIColor+Colors.swift */; };
 		9DB750B22752A23300F10473 /* marvel-font.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9DB750B12752A23300F10473 /* marvel-font.otf */; };
+		9DB750B62752E93300F10473 /* AppDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB750B52752E93300F10473 /* AppDIContainer.swift */; };
+		9DB750BB2752EB9400F10473 /* APIEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB750BA2752EB9400F10473 /* APIEndpoints.swift */; };
+		9DB750C52752EFA600F10473 /* NetworkCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB750C42752EFA600F10473 /* NetworkCall.swift */; };
+		9DB750C72752F00D00F10473 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB750C62752F00D00F10473 /* NetworkError.swift */; };
+		9DB750C92752F05600F10473 /* StatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB750C82752F05600F10473 /* StatusCode.swift */; };
+		9DB750CC2752F14100F10473 /* NetworkDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB750CB2752F14100F10473 /* NetworkDispatcher.swift */; };
+		9DB750CE2752F14A00F10473 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB750CD2752F14A00F10473 /* NetworkManager.swift */; };
+		9DB750D02752F1E400F10473 /* Publisher+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB750CF2752F1E400F10473 /* Publisher+Utils.swift */; };
+		9DB750D22752F21500F10473 /* Error+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB750D12752F21500F10473 /* Error+Utils.swift */; };
+		9DB750D62752F45D00F10473 /* APINetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB750D52752F45D00F10473 /* APINetwork.swift */; };
+		9DB750D82752F48600F10473 /* APIProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB750D72752F48600F10473 /* APIProtocol.swift */; };
+		9DB750DA2752F48D00F10473 /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB750D92752F48D00F10473 /* APIRouter.swift */; };
+		9DB750DD2752F63C00F10473 /* CharactersResponseDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB750DC2752F63C00F10473 /* CharactersResponseDTO+Mapping.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +92,19 @@
 		9DB750AC2752988900F10473 /* Scheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scheduler.swift; sourceTree = "<group>"; };
 		9DB750AE2752996500F10473 /* UIColor+Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Colors.swift"; sourceTree = "<group>"; };
 		9DB750B12752A23300F10473 /* marvel-font.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "marvel-font.otf"; sourceTree = "<group>"; };
+		9DB750B52752E93300F10473 /* AppDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDIContainer.swift; sourceTree = "<group>"; };
+		9DB750BA2752EB9400F10473 /* APIEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndpoints.swift; sourceTree = "<group>"; };
+		9DB750C42752EFA600F10473 /* NetworkCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkCall.swift; sourceTree = "<group>"; };
+		9DB750C62752F00D00F10473 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		9DB750C82752F05600F10473 /* StatusCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusCode.swift; sourceTree = "<group>"; };
+		9DB750CB2752F14100F10473 /* NetworkDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDispatcher.swift; sourceTree = "<group>"; };
+		9DB750CD2752F14A00F10473 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		9DB750CF2752F1E400F10473 /* Publisher+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+Utils.swift"; sourceTree = "<group>"; };
+		9DB750D12752F21500F10473 /* Error+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+Utils.swift"; sourceTree = "<group>"; };
+		9DB750D52752F45D00F10473 /* APINetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APINetwork.swift; sourceTree = "<group>"; };
+		9DB750D72752F48600F10473 /* APIProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIProtocol.swift; sourceTree = "<group>"; };
+		9DB750D92752F48D00F10473 /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
+		9DB750DC2752F63C00F10473 /* CharactersResponseDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CharactersResponseDTO+Mapping.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +183,7 @@
 				9D8D023B274EEA4F008D89AD /* AppFlowCoordinator.swift */,
 				9D8D023D274EEB41008D89AD /* AppConfiguration.swift */,
 				9DB750A9275295CF00F10473 /* AppAppearance.swift */,
+				9DB750B52752E93300F10473 /* AppDIContainer.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -256,6 +283,7 @@
 		9DB7507B2751819D00F10473 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				9DB750DB2752F60B00F10473 /* Network */,
 				9DB750A227524D3B00F10473 /* Respositories */,
 			);
 			path = Data;
@@ -264,6 +292,7 @@
 		9DB7507C275181AD00F10473 /* Infraestructure */ = {
 			isa = PBXGroup;
 			children = (
+				9DB750B32752E86D00F10473 /* Network */,
 			);
 			path = Infraestructure;
 			sourceTree = "<group>";
@@ -350,6 +379,48 @@
 				9DB750B12752A23300F10473 /* marvel-font.otf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		9DB750B32752E86D00F10473 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				9DB750D32752F22600F10473 /* Utils */,
+				9DB750C42752EFA600F10473 /* NetworkCall.swift */,
+				9DB750C62752F00D00F10473 /* NetworkError.swift */,
+				9DB750C82752F05600F10473 /* StatusCode.swift */,
+				9DB750CB2752F14100F10473 /* NetworkDispatcher.swift */,
+				9DB750CD2752F14A00F10473 /* NetworkManager.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		9DB750D32752F22600F10473 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				9DB750CF2752F1E400F10473 /* Publisher+Utils.swift */,
+				9DB750D12752F21500F10473 /* Error+Utils.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		9DB750D42752F45300F10473 /* DataMapping */ = {
+			isa = PBXGroup;
+			children = (
+				9DB750DC2752F63C00F10473 /* CharactersResponseDTO+Mapping.swift */,
+			);
+			path = DataMapping;
+			sourceTree = "<group>";
+		};
+		9DB750DB2752F60B00F10473 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				9DB750BA2752EB9400F10473 /* APIEndpoints.swift */,
+				9DB750D52752F45D00F10473 /* APINetwork.swift */,
+				9DB750D72752F48600F10473 /* APIProtocol.swift */,
+				9DB750D92752F48D00F10473 /* APIRouter.swift */,
+				9DB750D42752F45300F10473 /* DataMapping */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -478,26 +549,39 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DB750C92752F05600F10473 /* StatusCode.swift in Sources */,
+				9DB750B62752E93300F10473 /* AppDIContainer.swift in Sources */,
 				9DB7509E275249D500F10473 /* Handler.swift in Sources */,
 				9DB750AA275295CF00F10473 /* AppAppearance.swift in Sources */,
 				9D8D0238274EA8E6008D89AD /* DateExtension.swift in Sources */,
 				9DB750822751829800F10473 /* CharactersListItemViewModel.swift in Sources */,
 				9D8D023E274EEB42008D89AD /* AppConfiguration.swift in Sources */,
+				9DB750DA2752F48D00F10473 /* APIRouter.swift in Sources */,
 				9DB750872751911000F10473 /* UIViewController+Instantiable.swift in Sources */,
 				9DB750A427524D4600F10473 /* CharactersRepository.swift in Sources */,
 				9DB75098275248E100F10473 /* CharactersGateway.swift in Sources */,
+				9DB750DD2752F63C00F10473 /* CharactersResponseDTO+Mapping.swift in Sources */,
 				9DB7507F2751828500F10473 /* CharactersListViewModel.swift in Sources */,
+				9DB750C52752EFA600F10473 /* NetworkCall.swift in Sources */,
 				9DB750922752456800F10473 /* UseCase.swift in Sources */,
 				9DB750AF2752996500F10473 /* UIColor+Colors.swift in Sources */,
 				9D8D0248274EEE46008D89AD /* CharactersListViewController.swift in Sources */,
+				9DB750CC2752F14100F10473 /* NetworkDispatcher.swift in Sources */,
 				9DB7509B2752495A00F10473 /* CharactersUseCaseFactory.swift in Sources */,
 				9DB750A6275291BC00F10473 /* String+Localized.swift in Sources */,
+				9DB750D22752F21500F10473 /* Error+Utils.swift in Sources */,
 				9DB750AD2752988900F10473 /* Scheduler.swift in Sources */,
 				9D8D023C274EEA4F008D89AD /* AppFlowCoordinator.swift in Sources */,
 				9DB750A8275294E500F10473 /* AccessibilityIdentifier.swift in Sources */,
+				9DB750C72752F00D00F10473 /* NetworkError.swift in Sources */,
 				9DB7508A2752433C00F10473 /* Character.swift in Sources */,
+				9DB750D82752F48600F10473 /* APIProtocol.swift in Sources */,
 				9DB750A127524AC800F10473 /* SearchCharactersUseCase.swift in Sources */,
+				9DB750D62752F45D00F10473 /* APINetwork.swift in Sources */,
+				9DB750CE2752F14A00F10473 /* NetworkManager.swift in Sources */,
 				9D8D01FD274E5978008D89AD /* AppDelegate.swift in Sources */,
+				9DB750D02752F1E400F10473 /* Publisher+Utils.swift in Sources */,
+				9DB750BB2752EB9400F10473 /* APIEndpoints.swift in Sources */,
 				9D8D0235274EA7AE008D89AD /* Log.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

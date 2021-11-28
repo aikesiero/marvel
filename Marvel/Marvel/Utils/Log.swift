@@ -10,6 +10,9 @@ import Foundation
 enum LogEvent: String {
     case error = "[❌]"
     case debug = "[ℹ️]"
+    case networkError = "[🔴]"
+    case networkRequest = "[🔵]"
+    case networkResponse = "[🟢]"
 }
 
 func print(_ object: Any) {
@@ -54,6 +57,49 @@ class Log {
         if isLoggingEnabled {
             print("LOG \(Date().toString()) \(LogEvent.debug.rawValue)" +
                     "[\(sourceFileName(filePath: filename))]:\(line) \(funcName) -> \(object)")
+        }
+    }
+
+    class func networkRequest( request: URLRequest) {
+        if isLoggingEnabled {
+            let url = request.url ?? URL(string: "")
+            let urlString = url?.absoluteURL.description
+
+            let bodyString = String(decoding: request.httpBody ?? Data(), as: UTF8.self)
+            let method = request.httpMethod ?? ""
+            let headers = request.allHTTPHeaderFields ?? [:]
+
+            print("\nLOG \(Date().toString()) \(LogEvent.networkRequest.rawValue) -> Request with:\n\tURL: " +
+                    "\(urlString ?? "")\n\tMethod: \(method)\n\tHeaders: \(headers )\n\tBody:\(bodyString)\n")
+        }
+    }
+
+    class func networkError( _ object: Any,
+                             filename: String = #file,
+                             line: Int = #line,
+                             funcName: String = #function) {
+        if isLoggingEnabled {
+            print("\nLOG \(Date().toString()) \(LogEvent.networkError.rawValue)" +
+                    "[\(sourceFileName(filePath: filename))]:\(line) \(funcName) -> \(object)")
+        }
+    }
+
+    class func networkResponse( response: HTTPURLResponse, data: Data?, httpCodes: HTTPCodes) {
+        if isLoggingEnabled {
+            let url = response.url ?? URL(string: "")
+            let urlString = url?.absoluteURL.description
+            let headers = response.allHeaderFields
+            let status = response.statusCode
+            let stringResponse = String(decoding: data ?? Data(), as: UTF8.self)
+
+            var logEvent = LogEvent.networkResponse.rawValue
+
+            if !httpCodes.contains(response.statusCode) {
+                logEvent = LogEvent.error.rawValue
+            }
+
+            print("\nLOG \(Date().toString()) \(logEvent) -> Response with:\n\tURL: \(urlString ?? "")" +
+                    "\n\tStatusCode: \(status)\n\tHeaders: \(headers)\n\tResponse: \(stringResponse)\n")
         }
     }
 
