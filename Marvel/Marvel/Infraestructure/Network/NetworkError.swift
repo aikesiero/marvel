@@ -7,8 +7,6 @@
 
 import Foundation
 
-import Foundation
-
 enum NetworkError: Error {
     case httpCode(HTTPCode, String)
     case imageProcessing([URLRequest])
@@ -17,9 +15,10 @@ enum NetworkError: Error {
     case forbidden(String)
     case urlNotFound(String)
     case serverError(String)
+    case apiError(String, String)
     case unknownError
 
-    static func checkErrorCode(_ errorCode: Int, _ message: String) -> NetworkError {
+    static func checkErrorCode(_ errorCode: Int, _ message: String, _ code: String = "") -> NetworkError {
         switch errorCode {
         case StatusCode.Failure.invalidRequest:
             return .invalidRequest(errors: [])
@@ -31,6 +30,8 @@ enum NetworkError: Error {
             return .urlNotFound(message)
         case StatusCode.Failure.serverError:
             return .serverError(message)
+        case StatusCode.Failure.apiError:
+            return .apiError(code, message)
         default:
             return .unknownError
         }
@@ -57,11 +58,8 @@ enum NetworkError: Error {
 }
 
 struct NetworkErrorMessage: Codable, Equatable {
-    let timestamp: Int
-    let status: Int
+    let code: String
     let message: String
-    let path: String
-    let error: String
 }
 
 extension NetworkErrorMessage {

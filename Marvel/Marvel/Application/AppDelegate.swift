@@ -11,6 +11,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    let appDIContainer = AppDIContainer()
     var appFlowCoordinator: AppFlowCoordinator?
 
     func application(_ application: UIApplication,
@@ -23,10 +24,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         window?.rootViewController = navigationController
 
-        appFlowCoordinator = AppFlowCoordinator(navigationController: navigationController)
+        appFlowCoordinator = AppFlowCoordinator(navigationController: navigationController,
+                                                appDIContainer: appDIContainer)
         appFlowCoordinator?.start()
         window?.makeKeyAndVisible()
-        
+
         return true
     }
 

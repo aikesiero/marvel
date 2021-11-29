@@ -7,6 +7,14 @@
 
 import Foundation
 
-final class AppDIcontainer {
-    
+final class AppDIContainer {
+
+    lazy var appConfiguration = AppConfiguration()
+
+    // MARK: - Network
+    lazy var apiNetwork: APINetwork = {
+        return APINetwork(baseURL: appConfiguration.apiBaseURL,
+                   publicKey: appConfiguration.apiPublicKey,
+                   privateKey: appConfiguration.apiPrivateKey)
+    }()
 }

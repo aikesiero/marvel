@@ -9,5 +9,5 @@ import Foundation
 import Combine
 
 protocol APIProtocol: NetworkManager {
-    func getCharacters() -> AnyPublisher<ResponseDTO, Error>
+    func getCharacters() -> AnyPublisher<CharactersResponseDTO, Error>
 }

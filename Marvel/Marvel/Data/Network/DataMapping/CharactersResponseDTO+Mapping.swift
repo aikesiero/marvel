@@ -17,35 +17,13 @@ struct CharactersResponseDTO: Decodable {
     }
     let code: Int
     let status: String
-    let result: DataDTO
+    let result: CharactersDataDTO
 }
 
-extension CharactersResponseDTO {
-    struct DataDTO: Decodable {
-        private enum CodingKeys: String, CodingKey {
-            case offset
-            case limit
-            case total
-            case count
-            case characters = "results"
-        }
-        let offset: Int
-        let limit: Int
-        let total: Int
-        let count: Int
-        let characters: [CharacterDTO]
-    }
-}
+// MARK: - Mappings to Domain
 
 extension CharactersResponseDTO {
-    struct CharacterDTO: Decodable {
-        private enum CodingKeys: String, CodingKey {
-            case id
-            case name
-            case description
-        }
-        let id: Int
-        let name: String
-        let description: String?
+    func toDomain() -> CharactersPage {
+        return result.toDomain()
     }
 }

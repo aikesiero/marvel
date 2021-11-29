@@ -25,7 +25,7 @@ struct StatusCode {
 
         // API
         static let apiError: Int = 409
-        
+
         // System
         static let cancelled: Int = -999
         static let notConnectedWithServer: Int = -1009

@@ -52,7 +52,7 @@ final class CharactersListViewModel: CharactersListViewModelIO {
     private var charactersUseCaseFactory: CharactersUseCaseFactory
     private var useCase: UseCase?
     private var currentSearchQuery: String = ""
-    
+
     private var cancellable: AnyCancellable?
 
     var currentPage: Int = 0
@@ -98,26 +98,9 @@ extension CharactersListViewModel {
     }
 
     func didCancelSearch() {
-        _ = self.fetchCharacters()
     }
-
 
     func didSelectCharacter(at index: Int) {
 
     }
-    
-    func fetchCharacters() -> AnyPublisher<ResponseDTO, NetworkError> {
-       Future<ResponseDTO, NetworkError> { [weak self] promise in
-            let baseURL = "gateway.marvel.com"
-            let network = APINetwork(baseURL: baseURL)
-            self?.cancellable = network.getCharacters().sink(receiveCompletion: { completion in
-                if case .failure = completion {
-                    return promise(.failure(NetworkError.unknownError))
-                }
-            }, receiveValue: { characters in
-                    return promise(.success(characters))
-            })
-        }.eraseToAnyPublisher()
-    }
-
 }

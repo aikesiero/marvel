@@ -48,12 +48,14 @@ private extension Publisher where Output == URLSession.DataTaskPublisher.Output 
 
             guard httpCodes.contains(code) else {
                 Log.networkError("Error found: \(code)")
+                var errorNet: NetworkError
                 do {
                     let errorM = try JSONDecoder().decode(NetworkErrorMessage.self, from: $0.0)
-                    throw NetworkError.checkErrorCode(code, errorM.message)
+                    errorNet = NetworkError.checkErrorCode(code, errorM.message, errorM.code)
                 } catch {
                     throw NetworkError.checkErrorCode(code, "")
                 }
+                throw errorNet
             }
 
             return $0.0

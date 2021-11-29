@@ -10,30 +10,69 @@ import Combine
 
 final class CharactersRepository {
 
-    // TODO: provisional
+    private var network: APINetwork
+    private var cancellable: AnyCancellable?
 
-    let cPage: CharactersPage = CharactersPage(page: 1, totalPages: 2, characters: [Character(id: 1, name: "pruebaA"),
-                                                                                    Character(id: 2, name: "pruebaB")])
-
+    init(network: APINetwork) {
+        self.network = network
+    }
 }
 
 extension CharactersRepository: CharactersGateway {
+
     func fetchCharacters() -> AnyPublisher<CharactersPage, CharactersGatewayError> {
+        Future<CharactersPage, CharactersGatewayError> { [weak self] promise in
+             let fetchCompletionHandler: (Subscribers.Completion<Error>) -> Void = { completion in
+                switch completion {
+                case .failure:
+                    print("failure")
+                    return promise(.failure(.noResults))
+                    // self?.state = .error(.playersFetch)
+                case .finished:
+                    print("finished")
+                }
+            }
 
-        // TODO: provisional
-        return Just(cPage)
-            .setFailureType(to: CharactersGatewayError.self)
-            .delay(for: 2, scheduler: Scheduler.backgroundWorkScheduler)
-            .eraseToAnyPublisher()
+            let fetchValueHandler: (CharactersResponseDTO) -> Void = { characters in
+                print("*******************")
+                print(characters)
+                return promise(.success(characters.toDomain()))
+            }
 
+            self?.cancellable = self?.network
+                .getCharacters()
+                .sink(receiveCompletion: fetchCompletionHandler,
+                      receiveValue: fetchValueHandler)
+        }
+        .eraseToAnyPublisher()
     }
 
     func fetchCharacters(with query: String) -> AnyPublisher<CharactersPage, CharactersGatewayError> {
         // TODO: provisional
-        return Just(cPage)
-            .setFailureType(to: CharactersGatewayError.self)
-            .delay(for: 2, scheduler: Scheduler.backgroundWorkScheduler)
-            .eraseToAnyPublisher()
+        Future<CharactersPage, CharactersGatewayError> { [weak self] promise in
+             let fetchCompletionHandler: (Subscribers.Completion<Error>) -> Void = { completion in
+                switch completion {
+                case .failure:
+                    print("failure")
+                    return promise(.failure(.noResults))
+                    // self?.state = .error(.playersFetch)
+                case .finished:
+                    print("finished")
+                }
+            }
+
+            let fetchValueHandler: (CharactersResponseDTO) -> Void = { characters in
+                print("*******************")
+                print(characters)
+                return promise(.success(characters.toDomain()))
+            }
+
+            self?.cancellable = self?.network
+                .getCharacters()
+                .sink(receiveCompletion: fetchCompletionHandler,
+                      receiveValue: fetchValueHandler)
+        }
+        .eraseToAnyPublisher()
     }
 
 }

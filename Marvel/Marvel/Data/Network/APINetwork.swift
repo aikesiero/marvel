@@ -10,12 +10,14 @@ import Combine
 
 class APINetwork: NetworkManager, APIProtocol {
 
-    func getCharacters() -> AnyPublisher<ResponseDTO, Error> {
-        call(endpoint: APIRouter.getCharacters)
+    let apiAuth: APIAuth
+
+    init(baseURL: String, publicKey: String, privateKey: String) {
+        self.apiAuth = APIAuth(publicKey: publicKey, privateKey: privateKey)
+        super.init(baseURL: baseURL)
     }
-}
 
-
-struct ResponseDTO: Decodable {
-    var code: String?
+    func getCharacters() -> AnyPublisher<CharactersResponseDTO, Error> {
+        call(endpoint: APIRouter.getCharacters(apiAuth: apiAuth))
+    }
 }

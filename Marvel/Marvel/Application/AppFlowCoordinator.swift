@@ -11,20 +11,20 @@ import UIKit
 final class AppFlowCoordinator {
 
     var navigationController: UINavigationController
+    private let appDIContainer: AppDIContainer
 
-    init(navigationController: UINavigationController) {
+    init(navigationController: UINavigationController,
+         appDIContainer: AppDIContainer) {
         self.navigationController = navigationController
+        self.appDIContainer = appDIContainer
     }
 
     func start() {
+        let characterListDependencies =
+        CharactersListFlowCoordinator.Dependencies(apiNetwork: appDIContainer.apiNetwork)
+        let flow = CharactersListFlowCoordinator(navigationController: navigationController,
+                                      dependencies: characterListDependencies)
 
-        // TODO: Modificar
-
-        let repo = CharactersRepository()
-        let useCaseFactory = CharactersUseCaseFactory(charactersGateway: repo)
-        let viewModel = CharactersListViewModel(charactersUseCaseFactory: useCaseFactory)
-        let viewController = CharactersListViewController.create(with: viewModel)
-        navigationController.pushViewController(viewController, animated: false)
-
+        flow.start()
     }
 }

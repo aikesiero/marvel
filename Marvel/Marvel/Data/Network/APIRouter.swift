@@ -9,12 +9,13 @@ import Foundation
 
 public enum APIRouter: NetworkCall {
 
-    case getCharacters
+    case getCharacters(apiAuth: APIAuth)
 
     var path: URLComponents {
         switch self {
-        case .getCharacters:
+        case let .getCharacters(apiAuth: apiAuth):
             var components = URLComponents()
+            components.addAuthoriztion(apiAuth: apiAuth)
             components.path = APIEndpoints.getCharacters
             return components
         }
