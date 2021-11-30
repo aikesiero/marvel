@@ -9,7 +9,7 @@ import Foundation
 
 protocol NetworkCall {
     var path: URLComponents { get }
-    var method: String { get }
+    var method: HTTPMethodType { get }
     var headers: [String: String]? { get }
     func body() throws -> Data?
 }
@@ -25,7 +25,7 @@ extension NetworkCall {
             throw NetworkError.urlNotFound(urlComponent.url?.absoluteString ?? "")
         }
         var request = URLRequest(url: url)
-        request.httpMethod = method
+        request.httpMethod = method.rawValue
         request.allHTTPHeaderFields = headers
         request.httpBody = try body()
         Log.networkRequest(request: request)
@@ -38,4 +38,13 @@ typealias HTTPCodes = Range<HTTPCode>
 
 extension HTTPCodes {
     static let success = 200 ..< 300
+}
+
+public enum HTTPMethodType: String {
+    case get     = "GET"
+    case head    = "HEAD"
+    case post    = "POST"
+    case put     = "PUT"
+    case patch   = "PATCH"
+    case delete  = "DELETE"
 }

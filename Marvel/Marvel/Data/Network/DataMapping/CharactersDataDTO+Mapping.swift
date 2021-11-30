@@ -29,7 +29,7 @@ struct CharactersDataDTO: Decodable {
 extension CharactersDataDTO {
     func toDomain() -> CharactersPage {
         let page = (offset / limit) + 1
-        let totalPages = (total / limit) + 1
+        let totalPages = (total / limit)
         return .init(page: page,
                      totalPages: totalPages,
                      characters: characters.map { $0.toDomain() })

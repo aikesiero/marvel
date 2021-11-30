@@ -10,9 +10,9 @@ import Combine
 
 enum CharactersGatewayError: Error {
     case noResults
+    case networkError
 }
 
 protocol CharactersGateway {
-    func fetchCharacters() -> AnyPublisher<CharactersPage, CharactersGatewayError>
-    func fetchCharacters(with query: String) -> AnyPublisher<CharactersPage, CharactersGatewayError>
+    func fetchCharacters(with query: CharactersQuery) -> AnyPublisher<CharactersPage, CharactersGatewayError>
 }

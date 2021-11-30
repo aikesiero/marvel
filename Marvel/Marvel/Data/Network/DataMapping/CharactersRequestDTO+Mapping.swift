@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct CharactersRequestDTO: Encodable {
+public struct CharactersRequestDTO: Encodable {
     let query: String?
-    let page: Int?
+    let limit: Int
+    let offset: Int
 }

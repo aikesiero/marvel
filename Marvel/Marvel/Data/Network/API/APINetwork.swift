@@ -17,7 +17,7 @@ class APINetwork: NetworkManager, APIProtocol {
         super.init(baseURL: baseURL)
     }
 
-    func getCharacters() -> AnyPublisher<CharactersResponseDTO, Error> {
-        call(endpoint: APIRouter.getCharacters(apiAuth: apiAuth))
+    func getCharacters(with request: CharactersRequestDTO) -> AnyPublisher<CharactersResponseDTO, Error> {
+        call(endpoint: APIRouter.getCharacters(apiAuth: apiAuth, request: request))
     }
 }

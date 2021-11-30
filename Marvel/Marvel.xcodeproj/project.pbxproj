@@ -15,6 +15,14 @@
 		9D40663D275427550001918D /* CharactersListFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D40663C275427550001918D /* CharactersListFlowCoordinator.swift */; };
 		9D40664027543FC80001918D /* CharactersListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D40663F27543FC80001918D /* CharactersListTableViewController.swift */; };
 		9D406643275440450001918D /* CharactersListItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D406642275440450001918D /* CharactersListItemCell.swift */; };
+		9D4066452755536B0001918D /* CharactersQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4066442755536B0001918D /* CharactersQuery.swift */; };
+		9D40664827555B280001918D /* URLComponents+Pagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D40664727555B280001918D /* URLComponents+Pagination.swift */; };
+		9D40664C275562EB0001918D /* CharactersListViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D40664B275562EB0001918D /* CharactersListViewController.storyboard */; };
+		9D40664E275564DC0001918D /* Storyboard+Instantiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D40664D275564DC0001918D /* Storyboard+Instantiable.swift */; };
+		9D4066502755775A0001918D /* UIViewController+ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D40664F2755775A0001918D /* UIViewController+ActivityIndicator.swift */; };
+		9D4066522756C3770001918D /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4066512756C3770001918D /* LoadingView.swift */; };
+		9D4066552756DDF70001918D /* MyolivinRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9D4066532756DDF60001918D /* MyolivinRegular.otf */; };
+		9D4066562756DDF70001918D /* MyolivinBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9D4066542756DDF70001918D /* MyolivinBold.otf */; };
 		9D8D01FD274E5978008D89AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8D01FC274E5978008D89AD /* AppDelegate.swift */; };
 		9D8D0206274E597A008D89AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D8D0205274E597A008D89AD /* Assets.xcassets */; };
 		9D8D0209274E597A008D89AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D8D0207274E597A008D89AD /* LaunchScreen.storyboard */; };
@@ -23,7 +31,6 @@
 		9D8D023C274EEA4F008D89AD /* AppFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8D023B274EEA4F008D89AD /* AppFlowCoordinator.swift */; };
 		9D8D023E274EEB42008D89AD /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8D023D274EEB41008D89AD /* AppConfiguration.swift */; };
 		9D8D0248274EEE46008D89AD /* CharactersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8D0247274EEE46008D89AD /* CharactersListViewController.swift */; };
-		9D8D024A274EEE5F008D89AD /* CharactersListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D8D0249274EEE5F008D89AD /* CharactersListViewController.xib */; };
 		9D8D024E274EFFA5008D89AD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9D8D0250274EFFA5008D89AD /* Localizable.strings */; };
 		9D8D0256274F03A9008D89AD /* AppConfigurationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8D0255274F03A9008D89AD /* AppConfigurationTest.swift */; };
 		9DB7507F2751828500F10473 /* CharactersListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB7507E2751828500F10473 /* CharactersListViewModel.swift */; };
@@ -76,6 +83,14 @@
 		9D40663C275427550001918D /* CharactersListFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListFlowCoordinator.swift; sourceTree = "<group>"; };
 		9D40663F27543FC80001918D /* CharactersListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListTableViewController.swift; sourceTree = "<group>"; };
 		9D406642275440450001918D /* CharactersListItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListItemCell.swift; sourceTree = "<group>"; };
+		9D4066442755536B0001918D /* CharactersQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersQuery.swift; sourceTree = "<group>"; };
+		9D40664727555B280001918D /* URLComponents+Pagination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLComponents+Pagination.swift"; sourceTree = "<group>"; };
+		9D40664B275562EB0001918D /* CharactersListViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CharactersListViewController.storyboard; sourceTree = "<group>"; };
+		9D40664D275564DC0001918D /* Storyboard+Instantiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Storyboard+Instantiable.swift"; sourceTree = "<group>"; };
+		9D40664F2755775A0001918D /* UIViewController+ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ActivityIndicator.swift"; sourceTree = "<group>"; };
+		9D4066512756C3770001918D /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		9D4066532756DDF60001918D /* MyolivinRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MyolivinRegular.otf; sourceTree = "<group>"; };
+		9D4066542756DDF70001918D /* MyolivinBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MyolivinBold.otf; sourceTree = "<group>"; };
 		9D8D01F9274E5978008D89AD /* Marvel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Marvel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D8D01FC274E5978008D89AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D8D0205274E597A008D89AD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -87,7 +102,6 @@
 		9D8D023B274EEA4F008D89AD /* AppFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlowCoordinator.swift; sourceTree = "<group>"; };
 		9D8D023D274EEB41008D89AD /* AppConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
 		9D8D0247274EEE46008D89AD /* CharactersListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListViewController.swift; sourceTree = "<group>"; };
-		9D8D0249274EEE5F008D89AD /* CharactersListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharactersListViewController.xib; sourceTree = "<group>"; };
 		9D8D024B274EF795008D89AD /* MarvelAPI.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = MarvelAPI.xcconfig; sourceTree = "<group>"; };
 		9D8D024F274EFFA5008D89AD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9D8D0251274EFFBB008D89AD /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -145,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				9D4066312753D84F0001918D /* URLComponents+Auth.swift */,
+				9D40664727555B280001918D /* URLComponents+Pagination.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -164,6 +179,18 @@
 				9D406642275440450001918D /* CharactersListItemCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		9D406646275558420001918D /* API */ = {
+			isa = PBXGroup;
+			children = (
+				9D40662E2753D4CA0001918D /* APIAuth.swift */,
+				9DB750BA2752EB9400F10473 /* APIEndpoints.swift */,
+				9DB750D52752F45D00F10473 /* APINetwork.swift */,
+				9DB750D72752F48600F10473 /* APIProtocol.swift */,
+				9DB750D92752F48D00F10473 /* APIRouter.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 		9D8D01F0274E5978008D89AD = {
@@ -289,9 +316,9 @@
 		9D8D0245274EEE2A008D89AD /* View */ = {
 			isa = PBXGroup;
 			children = (
-				9D40663E27543FBB0001918D /* TableView */,
 				9D8D0247274EEE46008D89AD /* CharactersListViewController.swift */,
-				9D8D0249274EEE5F008D89AD /* CharactersListViewController.xib */,
+				9D40664B275562EB0001918D /* CharactersListViewController.storyboard */,
+				9D40663E27543FBB0001918D /* TableView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -345,6 +372,7 @@
 			children = (
 				9DB75085275190F000F10473 /* Extensions */,
 				9DB750A7275294E500F10473 /* AccessibilityIdentifier.swift */,
+				9D4066512756C3770001918D /* LoadingView.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -355,6 +383,8 @@
 				9DB750862751911000F10473 /* UIViewController+Instantiable.swift */,
 				9DB750A5275291BC00F10473 /* String+Localized.swift */,
 				9DB750AE2752996500F10473 /* UIColor+Colors.swift */,
+				9D40664D275564DC0001918D /* Storyboard+Instantiable.swift */,
+				9D40664F2755775A0001918D /* UIViewController+ActivityIndicator.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -363,6 +393,7 @@
 			isa = PBXGroup;
 			children = (
 				9DB750892752433C00F10473 /* Character.swift */,
+				9D4066442755536B0001918D /* CharactersQuery.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -419,6 +450,8 @@
 		9DB750B02752A22800F10473 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				9D4066542756DDF70001918D /* MyolivinBold.otf */,
+				9D4066532756DDF60001918D /* MyolivinRegular.otf */,
 				9DB750B12752A23300F10473 /* marvel-font.otf */,
 			);
 			path = Fonts;
@@ -460,12 +493,8 @@
 		9DB750DB2752F60B00F10473 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				9D406646275558420001918D /* API */,
 				9D4066302753D8420001918D /* Utils */,
-				9D40662E2753D4CA0001918D /* APIAuth.swift */,
-				9DB750BA2752EB9400F10473 /* APIEndpoints.swift */,
-				9DB750D52752F45D00F10473 /* APINetwork.swift */,
-				9DB750D72752F48600F10473 /* APIProtocol.swift */,
-				9DB750D92752F48D00F10473 /* APIRouter.swift */,
 				9DB750D42752F45300F10473 /* DataMapping */,
 			);
 			path = Network;
@@ -554,9 +583,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9D8D024A274EEE5F008D89AD /* CharactersListViewController.xib in Resources */,
+				9D40664C275562EB0001918D /* CharactersListViewController.storyboard in Resources */,
 				9D8D024E274EFFA5008D89AD /* Localizable.strings in Resources */,
 				9DB750B22752A23300F10473 /* marvel-font.otf in Resources */,
+				9D4066552756DDF70001918D /* MyolivinRegular.otf in Resources */,
+				9D4066562756DDF70001918D /* MyolivinBold.otf in Resources */,
 				9D8D0209274E597A008D89AD /* LaunchScreen.storyboard in Resources */,
 				9D8D0206274E597A008D89AD /* Assets.xcassets in Resources */,
 			);
@@ -604,15 +635,18 @@
 				9DB750AA275295CF00F10473 /* AppAppearance.swift in Sources */,
 				9D8D0238274EA8E6008D89AD /* DateExtension.swift in Sources */,
 				9D406643275440450001918D /* CharactersListItemCell.swift in Sources */,
+				9D40664827555B280001918D /* URLComponents+Pagination.swift in Sources */,
 				9D40664027543FC80001918D /* CharactersListTableViewController.swift in Sources */,
 				9DB750822751829800F10473 /* CharactersListItemViewModel.swift in Sources */,
 				9D8D023E274EEB42008D89AD /* AppConfiguration.swift in Sources */,
 				9DB750DA2752F48D00F10473 /* APIRouter.swift in Sources */,
 				9DB750872751911000F10473 /* UIViewController+Instantiable.swift in Sources */,
 				9D4066322753D84F0001918D /* URLComponents+Auth.swift in Sources */,
+				9D4066522756C3770001918D /* LoadingView.swift in Sources */,
 				9DB750A427524D4600F10473 /* CharactersRepository.swift in Sources */,
 				9DB75098275248E100F10473 /* CharactersGateway.swift in Sources */,
 				9DB750DD2752F63C00F10473 /* CharactersResponseDTO+Mapping.swift in Sources */,
+				9D40664E275564DC0001918D /* Storyboard+Instantiable.swift in Sources */,
 				9D40662F2753D4CA0001918D /* APIAuth.swift in Sources */,
 				9DB7507F2751828500F10473 /* CharactersListViewModel.swift in Sources */,
 				9DB750C52752EFA600F10473 /* NetworkCall.swift in Sources */,
@@ -624,6 +658,7 @@
 				9D40663D275427550001918D /* CharactersListFlowCoordinator.swift in Sources */,
 				9DB750A6275291BC00F10473 /* String+Localized.swift in Sources */,
 				9D40663B275420AC0001918D /* CharactersRequestDTO+Mapping.swift in Sources */,
+				9D4066452755536B0001918D /* CharactersQuery.swift in Sources */,
 				9DB750D22752F21500F10473 /* Error+Utils.swift in Sources */,
 				9DB750AD2752988900F10473 /* Scheduler.swift in Sources */,
 				9D8D023C274EEA4F008D89AD /* AppFlowCoordinator.swift in Sources */,
@@ -635,6 +670,7 @@
 				9DB750D62752F45D00F10473 /* APINetwork.swift in Sources */,
 				9DB750CE2752F14A00F10473 /* NetworkManager.swift in Sources */,
 				9D8D01FD274E5978008D89AD /* AppDelegate.swift in Sources */,
+				9D4066502755775A0001918D /* UIViewController+ActivityIndicator.swift in Sources */,
 				9D406635275415C40001918D /* CharactersDataDTO+Mapping.swift in Sources */,
 				9DB750D02752F1E400F10473 /* Publisher+Utils.swift in Sources */,
 				9DB750BB2752EB9400F10473 /* APIEndpoints.swift in Sources */,

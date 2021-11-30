@@ -18,7 +18,10 @@ class CharactersUseCaseFactory {
     }
 
     // MARK: - Factory Methods
-    func fetchCharactersUseCase(handler: @escaping Handler<CharactersPage>) -> UseCase {
-        SearchCharactersUseCase(charactersGateway: charactersGateway, handler: handler)
+    func fetchCharactersUseCase(query: CharactersQuery,
+                                handler: @escaping Handler<CharactersPage>) -> UseCase {
+        SearchCharactersUseCase(query: query,
+                                charactersGateway: charactersGateway,
+                                handler: handler)
     }
 }

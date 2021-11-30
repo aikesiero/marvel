@@ -13,7 +13,7 @@ struct CharactersListItemViewModel {
 
 extension CharactersListItemViewModel {
 
-    init(character: String) {
-        self.name = character
+    init(character: Character) {
+        self.name = character.name ?? ""
     }
 }

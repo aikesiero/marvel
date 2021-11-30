@@ -8,9 +8,11 @@
 import UIKit
 import Combine
 
-final class CharactersListViewController: UIViewController, UISearchControllerDelegate {
+final class CharactersListViewController: UIViewController, StoryboardInstantiable, UISearchControllerDelegate {
 
     @IBOutlet private var searchBarContainer: UIView!
+    @IBOutlet private var charactersListContainer: UIView!
+    @IBOutlet private var emptyDataLabel: UILabel!
 
     private var bindings = Set<AnyCancellable>()
 
@@ -18,10 +20,12 @@ final class CharactersListViewController: UIViewController, UISearchControllerDe
 
     private var searchController = UISearchController(searchResultsController: nil)
 
+    private var charactersTableViewController: CharactersListTableViewController?
+
     // MARK: - Lifecycle
 
     static func create(with viewModel: CharactersListViewModel) -> CharactersListViewController {
-        let viewController = CharactersListViewController.instantiate()
+        let viewController = CharactersListViewController.instantiateViewController()
         viewController.viewModel = viewModel
         return viewController
     }
@@ -43,14 +47,19 @@ final class CharactersListViewController: UIViewController, UISearchControllerDe
                 })
                 .store(in: &bindings)
 
+            viewModel.$loading
+                .receive(on: Scheduler.mainScheduler)
+                .sink(receiveValue: { [weak self] loading in
+                    self?.updateLoading(loading)
+                })
+                .store(in: &bindings)
+
             let stateValueHandler: (CharactersListViewModelState) -> Void = { [weak self] state in
                 switch state {
-                case .loading:
-                    // TODO:loading
-                    Log.debug("loading")
-                case .finishedLoading:
-                    // TODO: finishedLoading
-                    Log.debug("finishedLoading")
+                case .noResults:
+                    self?.emptyDataLabel.text = viewModel.noResultsTitle
+                case .finishedLoading, .loading:
+                    self?.emptyDataLabel.text = viewModel.emptyDataTitle
                 case .error(let error):
                     self?.showError(error)
                 }
@@ -65,6 +74,14 @@ final class CharactersListViewController: UIViewController, UISearchControllerDe
         bindViewModelToView()
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == String(describing: CharactersListTableViewController.self),
+            let destinationVC = segue.destination as? CharactersListTableViewController {
+            charactersTableViewController = destinationVC
+            charactersTableViewController?.viewModel = viewModel
+        }
+    }
+
     // MARK: - Private
 
     private func setUpViews() {
@@ -73,8 +90,21 @@ final class CharactersListViewController: UIViewController, UISearchControllerDe
     }
 
     private func updateItems() {
-        // TODO: reload
-        //  tableViewController?.reload()
+        charactersTableViewController?.reload()
+    }
+
+    private func updateLoading(_ loading: CharactersListViewModelLoading) {
+        emptyDataLabel.isHidden = true
+        charactersListContainer.isHidden = true
+        LoadingView.hide()
+        switch loading {
+        case .fullScreen: LoadingView.show()
+        case .nextPage: charactersListContainer.isHidden = false
+        case .none:
+            charactersListContainer.isHidden = viewModel.characters.isEmpty
+            emptyDataLabel.isHidden = !viewModel.characters.isEmpty
+        }
+        charactersTableViewController?.updateLoading(loading)
     }
 
     private func showError(_ error: Error) {

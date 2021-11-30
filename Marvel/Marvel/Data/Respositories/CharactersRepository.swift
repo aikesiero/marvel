@@ -20,55 +20,30 @@ final class CharactersRepository {
 
 extension CharactersRepository: CharactersGateway {
 
-    func fetchCharacters() -> AnyPublisher<CharactersPage, CharactersGatewayError> {
-        Future<CharactersPage, CharactersGatewayError> { [weak self] promise in
+    func fetchCharacters(with query: CharactersQuery) -> AnyPublisher<CharactersPage, CharactersGatewayError> {
+
+        let offset = query.pageSize * (query.page - 1)
+        let requestDTO = CharactersRequestDTO(query: query.query,
+                                              limit: query.pageSize,
+                                              offset: offset)
+
+        return Future<CharactersPage, CharactersGatewayError> { [weak self] promise in
              let fetchCompletionHandler: (Subscribers.Completion<Error>) -> Void = { completion in
-                switch completion {
-                case .failure:
-                    print("failure")
-                    return promise(.failure(.noResults))
-                    // self?.state = .error(.playersFetch)
-                case .finished:
-                    print("finished")
-                }
+                 if case .failure = completion {
+                     return promise(.failure(.networkError))
+                 }
             }
 
-            let fetchValueHandler: (CharactersResponseDTO) -> Void = { characters in
-                print("*******************")
-                print(characters)
-                return promise(.success(characters.toDomain()))
+            let fetchValueHandler: (CharactersResponseDTO) -> Void = { response in
+
+                guard response.result.characters.count > 0 else {
+                    return promise(.failure(.noResults))
+                }
+                return promise(.success(response.toDomain()))
             }
 
             self?.cancellable = self?.network
-                .getCharacters()
-                .sink(receiveCompletion: fetchCompletionHandler,
-                      receiveValue: fetchValueHandler)
-        }
-        .eraseToAnyPublisher()
-    }
-
-    func fetchCharacters(with query: String) -> AnyPublisher<CharactersPage, CharactersGatewayError> {
-        // TODO: provisional
-        Future<CharactersPage, CharactersGatewayError> { [weak self] promise in
-             let fetchCompletionHandler: (Subscribers.Completion<Error>) -> Void = { completion in
-                switch completion {
-                case .failure:
-                    print("failure")
-                    return promise(.failure(.noResults))
-                    // self?.state = .error(.playersFetch)
-                case .finished:
-                    print("finished")
-                }
-            }
-
-            let fetchValueHandler: (CharactersResponseDTO) -> Void = { characters in
-                print("*******************")
-                print(characters)
-                return promise(.success(characters.toDomain()))
-            }
-
-            self?.cancellable = self?.network
-                .getCharacters()
+                .getCharacters(with: requestDTO)
                 .sink(receiveCompletion: fetchCompletionHandler,
                       receiveValue: fetchValueHandler)
         }

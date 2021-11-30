@@ -12,4 +12,5 @@ extension UIColor {
     static let mainColor = UIColor(named: "mainColor")
     static let lightTextColor = UIColor(named: "lightTextColor")
     static let placeholderColor = UIColor(named: "placeholderColor")
+    static let textColor = UIColor(named: "textColor")
 }

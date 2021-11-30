@@ -9,22 +9,27 @@ import Foundation
 
 public enum APIRouter: NetworkCall {
 
-    case getCharacters(apiAuth: APIAuth)
+    case getCharacters(apiAuth: APIAuth, request: CharactersRequestDTO)
 
     var path: URLComponents {
         switch self {
-        case let .getCharacters(apiAuth: apiAuth):
+        case let .getCharacters(apiAuth, request):
             var components = URLComponents()
+            if let query = request.query {
+                let queryString = URLQueryItem(name: "nameStartsWith", value: query)
+                components.queryItems = [queryString]
+            }
             components.addAuthoriztion(apiAuth: apiAuth)
+            components.addPagination(limit: request.limit, offset: request.offset)
             components.path = APIEndpoints.getCharacters
             return components
         }
     }
 
-    var method: String {
+    var method: HTTPMethodType {
         switch self {
         case .getCharacters:
-            return "GET"
+            return .get
         }
     }
 

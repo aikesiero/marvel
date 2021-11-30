@@ -8,3 +8,5 @@
 
 "Characters" = "Characters";
 "SearchPlaceholder" = "Search Character";
+"SearchResults" = "Search results";
+"NoResults" = "No Results found";
