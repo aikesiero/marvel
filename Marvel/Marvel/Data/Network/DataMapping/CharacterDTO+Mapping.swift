@@ -14,16 +14,32 @@ struct CharacterDTO: Decodable {
         case id
         case name
         case description
+        case thumbnail
     }
     let id: Int
     let name: String
     let description: String?
+    let thumbnail: Thumbnail?
+}
+
+struct Thumbnail: Decodable {
+    private enum CodingKeys: String, CodingKey {
+        case path
+        case ext = "extension"
+    }
+    let path: String
+    let ext: String
 }
 
 // MARK: - Mappings to Domain
 
 extension CharacterDTO {
     func toDomain() -> Character {
-        return .init(id: id, name: name)
+        guard let imagePath = thumbnail?.path,
+              let imageExtension = thumbnail?.ext else {
+                  return .init(id: id, name: name, description: description, imageUrl: nil)
+        }
+        let urlImage = imagePath + "." + imageExtension
+        return .init(id: id, name: name, description: description, imageUrl: urlImage)
     }
 }

@@ -40,7 +40,15 @@ extension CharacterResponseEntity {
     func toDTO() -> CharacterDTO {
         return .init(id: Int(id),
                      name: name ?? "",
-                     description: desc)
+                     description: desc,
+                     thumbnail: thumbnail!.toDTO())
+    }
+}
+
+extension CharacterThumbnailEntity {
+    func toDTO() -> Thumbnail {
+        return .init(path: path ?? "",
+                     ext: ext ?? "")
     }
 }
 
@@ -86,6 +94,16 @@ extension CharacterDTO {
         entity.id = Int64(id)
         entity.name = name
         entity.desc = description
+        entity.thumbnail = thumbnail?.toEntity(in: context)
+        return entity
+    }
+}
+
+extension Thumbnail {
+    func toEntity(in context: NSManagedObjectContext) -> CharacterThumbnailEntity {
+        let entity: CharacterThumbnailEntity = .init(context: context)
+        entity.path = path
+        entity.ext = ext
         return entity
     }
 }

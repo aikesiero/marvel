@@ -16,4 +16,5 @@ enum CharactersGatewayError: Error {
 
 protocol CharactersGateway {
     func fetchCharacters(with query: CharactersQuery) -> AnyPublisher<CharactersPage, CharactersGatewayError>
+    func fetchCharacter(with id: Int) -> AnyPublisher<Character, CharactersGatewayError>
 }

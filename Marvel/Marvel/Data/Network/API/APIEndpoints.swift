@@ -9,4 +9,5 @@ import Foundation
 
 struct APIEndpoints {
     static let getCharacters = "/v1/public/characters"
+    static let getCharacter = "/v1/public/characters/"
 }

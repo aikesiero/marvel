@@ -5,6 +5,7 @@
         <attribute name="id" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="name" attributeType="String"/>
         <relationship name="response" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CharactersDataResponseEntity" inverseName="characters" inverseEntity="CharactersDataResponseEntity"/>
+        <relationship name="thumbnail" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CharacterThumbnailEntity" inverseName="character" inverseEntity="CharacterThumbnailEntity"/>
     </entity>
     <entity name="CharactersDataResponseEntity" representedClassName="CharactersDataResponseEntity" syncable="YES" codeGenerationType="class">
         <attribute name="count" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
@@ -26,10 +27,16 @@
         <relationship name="request" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CharactersRequestEntity" inverseName="response" inverseEntity="CharactersRequestEntity"/>
         <relationship name="result" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CharactersDataResponseEntity" inverseName="response" inverseEntity="CharactersDataResponseEntity"/>
     </entity>
+    <entity name="CharacterThumbnailEntity" representedClassName="CharacterThumbnailEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="ext" optional="YES" attributeType="String"/>
+        <attribute name="path" optional="YES" attributeType="String"/>
+        <relationship name="character" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CharacterResponseEntity" inverseName="thumbnail" inverseEntity="CharacterResponseEntity"/>
+    </entity>
     <elements>
-        <element name="CharacterResponseEntity" positionX="79.28125" positionY="-144.359375" width="128" height="103"/>
+        <element name="CharacterResponseEntity" positionX="79.28125" positionY="-144.359375" width="128" height="118"/>
         <element name="CharactersDataResponseEntity" positionX="-226.48046875" positionY="-162.87109375" width="197.74609375" height="133"/>
         <element name="CharactersRequestEntity" positionX="-711.37109375" positionY="-142.67578125" width="165.703125" height="103"/>
         <element name="CharactersResponseEntity" positionX="-460.63671875" positionY="-132.8046875" width="159.4921875" height="89"/>
+        <element name="CharacterThumbnailEntity" positionX="-504" positionY="-99" width="128" height="74"/>
     </elements>
 </model>

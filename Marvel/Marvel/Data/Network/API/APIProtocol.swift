@@ -10,4 +10,5 @@ import Combine
 
 protocol APIProtocol: NetworkManager {
     func getCharacters(with request: CharactersRequestDTO) -> AnyPublisher<CharactersResponseDTO, Error>
+    func getCharacter(with id: Int) -> AnyPublisher<CharactersResponseDTO, Error>
 }

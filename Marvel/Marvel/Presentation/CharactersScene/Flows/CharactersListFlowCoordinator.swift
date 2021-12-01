@@ -8,6 +8,14 @@
 import Foundation
 import UIKit
 
+protocol CharactersListViewConnector {
+    func navigate(to destination: CharactersListNavigationDestination?)
+}
+
+extension CharactersListViewConnector {
+    func navigate(to destination: CharactersListNavigationDestination?) { }
+}
+
 final class CharactersListFlowCoordinator {
 
     struct Dependencies {
@@ -15,7 +23,7 @@ final class CharactersListFlowCoordinator {
         let cache: CharactersResponseStorage
     }
 
-    private weak var navigationController: UINavigationController?
+    private var navigationController: UINavigationController
     private let dependencies: Dependencies
 
     init(navigationController: UINavigationController,
@@ -27,8 +35,24 @@ final class CharactersListFlowCoordinator {
     func start() {
         let repo = CharactersRepository(network: dependencies.apiNetwork, cache: dependencies.cache)
         let useCaseFactory = CharactersUseCaseFactory(charactersGateway: repo)
-        let viewModel = CharactersListViewModel(charactersUseCaseFactory: useCaseFactory)
+        let viewModel = CharactersListViewModel(charactersUseCaseFactory: useCaseFactory, flowCoordinator: self)
         let viewController = CharactersListViewController.create(with: viewModel)
-        navigationController?.pushViewController(viewController, animated: false)
+        navigationController.pushViewController(viewController, animated: false)
+    }
+
+    func navigate(to destination: CharactersListNavigationDestination?) {
+        if let destination = destination {
+            switch destination {
+            case let .detail(index):
+                let characterDetailDependencies =
+                CharacterDetailFlowCoordinator.Dependencies(apiNetwork: dependencies.apiNetwork,
+                                                            cache: dependencies.cache)
+                let flow = CharacterDetailFlowCoordinator(navigationController: navigationController,
+                                                          dependencies: characterDetailDependencies,
+                                                          idCharacter: index)
+
+                flow.start()
+            }
+        }
     }
 }

@@ -20,7 +20,7 @@ enum CharactersListViewModelState: Equatable {
 }
 
 enum CharactersListNavigationDestination {
-    case detail
+    case detail(Int)
 }
 
 enum CharactersListViewModelLoading {
@@ -62,10 +62,10 @@ final class CharactersListViewModel: CharactersListViewModelIO {
     let noResultsTitle = "NoResults".localized()
 
     // MARK: - Properties
-    private var charactersUseCaseFactory: CharactersUseCaseFactory
+    private let charactersUseCaseFactory: CharactersUseCaseFactory
+    private let flowCoordinator: CharactersListFlowCoordinator
     private var useCase: UseCase?
     private var charactersQuery: CharactersQuery = CharactersQuery()
-    private var currentSearchQuery: String = ""
     private var pages: [CharactersPage] = []
 
     private var cancellable: AnyCancellable?
@@ -75,8 +75,10 @@ final class CharactersListViewModel: CharactersListViewModelIO {
     var hasMorePages: Bool { currentPage < totalPageCount }
     var nextPage: Int { hasMorePages ? currentPage + 1 : currentPage }
 
-    init(charactersUseCaseFactory: CharactersUseCaseFactory) {
+    init(charactersUseCaseFactory: CharactersUseCaseFactory,
+         flowCoordinator: CharactersListFlowCoordinator) {
         self.charactersUseCaseFactory = charactersUseCaseFactory
+        self.flowCoordinator = flowCoordinator
     }
 
     // MARK: - Private
@@ -152,13 +154,17 @@ extension CharactersListViewModel {
     func didCancelSearch() {
         resetPages()
         charactersQuery.reset()
+        self.pages = []
         self.state = .loading
         self.loading = .fullScreen
         self.executeFetchCharactersUseCase()
     }
 
     func didSelectCharacter(at index: Int) {
-
+        if index < self.characters.count {
+            let selectedCharacter = self.characters[index]
+            flowCoordinator.navigate(to: .detail(selectedCharacter.id))
+        }
     }
 }
 

@@ -20,4 +20,8 @@ class APINetwork: NetworkManager, APIProtocol {
     func getCharacters(with request: CharactersRequestDTO) -> AnyPublisher<CharactersResponseDTO, Error> {
         call(endpoint: APIRouter.getCharacters(apiAuth: apiAuth, request: request))
     }
+
+    func getCharacter(with id: Int) -> AnyPublisher<CharactersResponseDTO, Error> {
+        call(endpoint: APIRouter.getCharacter(apiAuth: apiAuth, id: id))
+    }
 }

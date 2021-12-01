@@ -67,6 +67,12 @@
 		9DB750D82752F48600F10473 /* APIProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB750D72752F48600F10473 /* APIProtocol.swift */; };
 		9DB750DA2752F48D00F10473 /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB750D92752F48D00F10473 /* APIRouter.swift */; };
 		9DB750DD2752F63C00F10473 /* CharactersResponseDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB750DC2752F63C00F10473 /* CharactersResponseDTO+Mapping.swift */; };
+		9DDB58BA2757C9C90091CBED /* CharacterDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDB58B92757C9C90091CBED /* CharacterDetailViewModel.swift */; };
+		9DDB58BC2757CC870091CBED /* GetCharacterUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDB58BB2757CC870091CBED /* GetCharacterUseCase.swift */; };
+		9DDB58BE2757D1400091CBED /* CharacterDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DDB58BD2757D1400091CBED /* CharacterDetailViewController.storyboard */; };
+		9DDB58C02757D14C0091CBED /* CharacterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDB58BF2757D14C0091CBED /* CharacterDetailViewController.swift */; };
+		9DDB58C22757D6AD0091CBED /* CharacterDetailFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDB58C12757D6AD0091CBED /* CharacterDetailFlowCoordinator.swift */; };
+		9DDB58C42757E1D20091CBED /* UIImageView+Load.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDB58C32757E1D20091CBED /* UIImageView+Load.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -145,6 +151,12 @@
 		9DB750D72752F48600F10473 /* APIProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIProtocol.swift; sourceTree = "<group>"; };
 		9DB750D92752F48D00F10473 /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
 		9DB750DC2752F63C00F10473 /* CharactersResponseDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CharactersResponseDTO+Mapping.swift"; sourceTree = "<group>"; };
+		9DDB58B92757C9C90091CBED /* CharacterDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewModel.swift; sourceTree = "<group>"; };
+		9DDB58BB2757CC870091CBED /* GetCharacterUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCharacterUseCase.swift; sourceTree = "<group>"; };
+		9DDB58BD2757D1400091CBED /* CharacterDetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CharacterDetailViewController.storyboard; sourceTree = "<group>"; };
+		9DDB58BF2757D14C0091CBED /* CharacterDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewController.swift; sourceTree = "<group>"; };
+		9DDB58C12757D6AD0091CBED /* CharacterDetailFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailFlowCoordinator.swift; sourceTree = "<group>"; };
+		9DDB58C32757E1D20091CBED /* UIImageView+Load.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Load.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -328,6 +340,7 @@
 			isa = PBXGroup;
 			children = (
 				9D8D0243274EEE19008D89AD /* CharactersList */,
+				9DDB58B52757C9A90091CBED /* CharacterDetail */,
 				9D8D0241274EEE0E008D89AD /* Flows */,
 			);
 			path = CharactersScene;
@@ -337,6 +350,7 @@
 			isa = PBXGroup;
 			children = (
 				9D40663C275427550001918D /* CharactersListFlowCoordinator.swift */,
+				9DDB58C12757D6AD0091CBED /* CharacterDetailFlowCoordinator.swift */,
 			);
 			path = Flows;
 			sourceTree = "<group>";
@@ -432,6 +446,7 @@
 				9DB750AE2752996500F10473 /* UIColor+Colors.swift */,
 				9D40664D275564DC0001918D /* Storyboard+Instantiable.swift */,
 				9D40664F2755775A0001918D /* UIViewController+ActivityIndicator.swift */,
+				9DDB58C32757E1D20091CBED /* UIImageView+Load.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -482,6 +497,7 @@
 			isa = PBXGroup;
 			children = (
 				9DB750A027524AC800F10473 /* SearchCharactersUseCase.swift */,
+				9DDB58BB2757CC870091CBED /* GetCharacterUseCase.swift */,
 			);
 			path = Characters;
 			sourceTree = "<group>";
@@ -545,6 +561,32 @@
 				9DB750D42752F45300F10473 /* DataMapping */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		9DDB58B52757C9A90091CBED /* CharacterDetail */ = {
+			isa = PBXGroup;
+			children = (
+				9DDB58B72757C9B20091CBED /* View */,
+				9DDB58B62757C9AE0091CBED /* ViewModel */,
+			);
+			path = CharacterDetail;
+			sourceTree = "<group>";
+		};
+		9DDB58B62757C9AE0091CBED /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9DDB58B92757C9C90091CBED /* CharacterDetailViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		9DDB58B72757C9B20091CBED /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9DDB58BF2757D14C0091CBED /* CharacterDetailViewController.swift */,
+				9DDB58BD2757D1400091CBED /* CharacterDetailViewController.storyboard */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -636,6 +678,7 @@
 				9D4066552756DDF70001918D /* MyolivinRegular.otf in Resources */,
 				9D4066562756DDF70001918D /* MyolivinBold.otf in Resources */,
 				9D8D0209274E597A008D89AD /* LaunchScreen.storyboard in Resources */,
+				9DDB58BE2757D1400091CBED /* CharacterDetailViewController.storyboard in Resources */,
 				9D8D0206274E597A008D89AD /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -675,8 +718,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DDB58C02757D14C0091CBED /* CharacterDetailViewController.swift in Sources */,
 				9D4066382754160A0001918D /* CharacterDTO+Mapping.swift in Sources */,
 				9DB750C92752F05600F10473 /* StatusCode.swift in Sources */,
+				9DDB58C42757E1D20091CBED /* UIImageView+Load.swift in Sources */,
 				9DB750B62752E93300F10473 /* AppDIContainer.swift in Sources */,
 				9DB7509E275249D500F10473 /* Handler.swift in Sources */,
 				9DB750AA275295CF00F10473 /* AppAppearance.swift in Sources */,
@@ -689,6 +734,7 @@
 				9DB750DA2752F48D00F10473 /* APIRouter.swift in Sources */,
 				9DB750872751911000F10473 /* UIViewController+Instantiable.swift in Sources */,
 				9D4066322753D84F0001918D /* URLComponents+Auth.swift in Sources */,
+				9DDB58BC2757CC870091CBED /* GetCharacterUseCase.swift in Sources */,
 				9D4066522756C3770001918D /* LoadingView.swift in Sources */,
 				9DB750A427524D4600F10473 /* CharactersRepository.swift in Sources */,
 				9D40666827577DC30001918D /* CharactersResponseEntity+Mapping.swift in Sources */,
@@ -701,6 +747,7 @@
 				9DB750C52752EFA600F10473 /* NetworkCall.swift in Sources */,
 				9DB750922752456800F10473 /* UseCase.swift in Sources */,
 				9DB750AF2752996500F10473 /* UIColor+Colors.swift in Sources */,
+				9DDB58BA2757C9C90091CBED /* CharacterDetailViewModel.swift in Sources */,
 				9D8D0248274EEE46008D89AD /* CharactersListViewController.swift in Sources */,
 				9DB750CC2752F14100F10473 /* NetworkDispatcher.swift in Sources */,
 				9DB7509B2752495A00F10473 /* CharactersUseCaseFactory.swift in Sources */,
@@ -715,6 +762,7 @@
 				9DB750AD2752988900F10473 /* Scheduler.swift in Sources */,
 				9D8D023C274EEA4F008D89AD /* AppFlowCoordinator.swift in Sources */,
 				9DB750A8275294E500F10473 /* AccessibilityIdentifier.swift in Sources */,
+				9DDB58C22757D6AD0091CBED /* CharacterDetailFlowCoordinator.swift in Sources */,
 				9DB750C72752F00D00F10473 /* NetworkError.swift in Sources */,
 				9DB7508A2752433C00F10473 /* Character.swift in Sources */,
 				9DB750D82752F48600F10473 /* APIProtocol.swift in Sources */,

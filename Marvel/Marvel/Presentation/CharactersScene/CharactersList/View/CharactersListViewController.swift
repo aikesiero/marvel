@@ -139,15 +139,26 @@ extension CharactersListViewController {
             searchController.searchBar.searchTextField.accessibilityIdentifier = AccessibilityIdentifier.searchField
         }
 
-        let placholderAttribute = [ NSAttributedString.Key.foregroundColor:
-                                        UIColor.placeholderColor ?? .white] as [NSAttributedString.Key: Any]
+        let customFont = UIFont(name: "My Olivin", size: 24) ?? UIFont.systemFont(ofSize: 15.0)
+
+        let placholderAttribute = [.foregroundColor:
+                                        UIColor.placeholderColor ?? .white,
+                                    .font: customFont] as [NSAttributedString.Key: Any]
+
+        let cancelAttribute = [.foregroundColor: UIColor.white,
+                               .font: customFont] as [NSAttributedString.Key: Any]
+
         let placeholderAttrString = NSAttributedString(string: viewModel.searchBarPlaceholder,
                                                        attributes: placholderAttribute)
 
         searchController.searchBar.searchTextField.attributedPlaceholder = placeholderAttrString
+        searchController.searchBar.searchTextField.font = customFont
         searchController.searchBar.searchTextField.leftView?.tintColor = .white
         searchController.searchBar.searchTextField.textColor = .lightTextColor
         searchController.searchBar.searchTextField.rightView?.tintColor = .white
+
+        UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self])
+            .setTitleTextAttributes(cancelAttribute, for: .normal)
 
         if let clearButton = searchController.searchBar.searchTextField.value(forKey: "_clearButton") as? UIButton {
             let templateImage = clearButton.imageView?.image?.withRenderingMode(.alwaysTemplate)

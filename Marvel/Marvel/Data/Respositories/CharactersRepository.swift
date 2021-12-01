@@ -63,4 +63,31 @@ extension CharactersRepository: CharactersGateway {
         .eraseToAnyPublisher()
     }
 
+    func fetchCharacter(with id: Int) -> AnyPublisher<Character, CharactersGatewayError> {
+
+        return Future<Character, CharactersGatewayError> { [weak self] promise in
+
+            let fetchCompletionHandler: (Subscribers.Completion<Error>) -> Void = { completion in
+                 if case .failure = completion {
+                     return promise(.failure(.networkError))
+                 }
+            }
+
+            let fetchValueHandler: (CharactersResponseDTO) -> Void = { response in
+
+                guard let character = response.firstElement() else {
+                    return promise(.failure(.noResults))
+                }
+                return promise(.success(character))
+            }
+
+            self?.cancellable = self?.network
+                .getCharacter(with: id)
+                .sink(receiveCompletion: fetchCompletionHandler,
+                      receiveValue: fetchValueHandler)
+
+        }
+        .eraseToAnyPublisher()
+    }
+
 }

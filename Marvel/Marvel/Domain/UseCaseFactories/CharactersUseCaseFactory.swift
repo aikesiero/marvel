@@ -24,4 +24,11 @@ class CharactersUseCaseFactory {
                                 charactersGateway: charactersGateway,
                                 handler: handler)
     }
+
+    func fetchCharacterUseCase(id: Int,
+                               handler: @escaping Handler<Character>) -> UseCase {
+        GetCharacterUseCase(id: id,
+                            charactersGateway: charactersGateway,
+                            handler: handler)
+    }
 }

@@ -11,6 +11,8 @@ struct Character: Equatable, Identifiable {
     typealias Identifier = Int
     let id: Identifier
     let name: String?
+    let description: String?
+    let imageUrl: String?
 }
 
 struct CharactersPage: Equatable {
