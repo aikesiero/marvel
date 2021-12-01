@@ -160,7 +160,6 @@ extension CharactersListViewController {
 extension CharactersListViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let searchText = searchBar.text, !searchText.isEmpty else { return }
-//        searchController.isActive = false
         viewModel.didSearch(query: searchText)
     }
 

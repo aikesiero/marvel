@@ -11,6 +11,7 @@ import Combine
 enum CharactersGatewayError: Error {
     case noResults
     case networkError
+    case cacheError
 }
 
 protocol CharactersGateway {

@@ -12,6 +12,7 @@ final class CharactersListFlowCoordinator {
 
     struct Dependencies {
         let apiNetwork: APINetwork
+        let cache: CharactersResponseStorage
     }
 
     private weak var navigationController: UINavigationController?
@@ -24,7 +25,7 @@ final class CharactersListFlowCoordinator {
     }
 
     func start() {
-        let repo = CharactersRepository(network: dependencies.apiNetwork)
+        let repo = CharactersRepository(network: dependencies.apiNetwork, cache: dependencies.cache)
         let useCaseFactory = CharactersUseCaseFactory(charactersGateway: repo)
         let viewModel = CharactersListViewModel(charactersUseCaseFactory: useCaseFactory)
         let viewController = CharactersListViewController.create(with: viewModel)

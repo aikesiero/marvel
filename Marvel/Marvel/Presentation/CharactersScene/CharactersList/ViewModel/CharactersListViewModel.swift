@@ -150,9 +150,10 @@ extension CharactersListViewModel {
     }
 
     func didCancelSearch() {
+        resetPages()
+        charactersQuery.reset()
         self.state = .loading
         self.loading = .fullScreen
-        charactersQuery.reset()
         self.executeFetchCharactersUseCase()
     }
 

@@ -11,10 +11,12 @@ import Combine
 final class CharactersRepository {
 
     private var network: APINetwork
+    private let cache: CharactersResponseStorage
     private var cancellable: AnyCancellable?
 
-    init(network: APINetwork) {
+    init(network: APINetwork, cache: CharactersResponseStorage) {
         self.network = network
+        self.cache = cache
     }
 }
 
@@ -28,7 +30,8 @@ extension CharactersRepository: CharactersGateway {
                                               offset: offset)
 
         return Future<CharactersPage, CharactersGatewayError> { [weak self] promise in
-             let fetchCompletionHandler: (Subscribers.Completion<Error>) -> Void = { completion in
+
+            let fetchCompletionHandler: (Subscribers.Completion<Error>) -> Void = { completion in
                  if case .failure = completion {
                      return promise(.failure(.networkError))
                  }
@@ -39,13 +42,23 @@ extension CharactersRepository: CharactersGateway {
                 guard response.result.characters.count > 0 else {
                     return promise(.failure(.noResults))
                 }
+                self?.cache.save(response: response, for: requestDTO)
                 return promise(.success(response.toDomain()))
             }
 
-            self?.cancellable = self?.network
-                .getCharacters(with: requestDTO)
-                .sink(receiveCompletion: fetchCompletionHandler,
+            let fetchCacheCompletionHandler: (Subscribers.Completion<CoreDataStorageError>) -> Void = { completion in
+                 if case .failure = completion {
+                     self?.cancellable = self?.network
+                         .getCharacters(with: requestDTO)
+                         .sink(receiveCompletion: fetchCompletionHandler,
+                               receiveValue: fetchValueHandler)
+                 }
+            }
+
+            self?.cancellable = self?.cache.getResponse(for: requestDTO)
+                .sink(receiveCompletion: fetchCacheCompletionHandler,
                       receiveValue: fetchValueHandler)
+
         }
         .eraseToAnyPublisher()
     }

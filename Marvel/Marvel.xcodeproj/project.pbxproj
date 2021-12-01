@@ -23,6 +23,11 @@
 		9D4066522756C3770001918D /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4066512756C3770001918D /* LoadingView.swift */; };
 		9D4066552756DDF70001918D /* MyolivinRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9D4066532756DDF60001918D /* MyolivinRegular.otf */; };
 		9D4066562756DDF70001918D /* MyolivinBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9D4066542756DDF70001918D /* MyolivinBold.otf */; };
+		9D40665D275774B60001918D /* CoreDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D40665C275774B60001918D /* CoreDataStorage.swift */; };
+		9D406660275775970001918D /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9D40665E275775970001918D /* CoreDataModel.xcdatamodeld */; };
+		9D406663275776140001918D /* CharactersResponseStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D406662275776140001918D /* CharactersResponseStorage.swift */; };
+		9D406665275776260001918D /* CoreDataCharactersResponseStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D406664275776260001918D /* CoreDataCharactersResponseStorage.swift */; };
+		9D40666827577DC30001918D /* CharactersResponseEntity+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D40666727577DC30001918D /* CharactersResponseEntity+Mapping.swift */; };
 		9D8D01FD274E5978008D89AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8D01FC274E5978008D89AD /* AppDelegate.swift */; };
 		9D8D0206274E597A008D89AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D8D0205274E597A008D89AD /* Assets.xcassets */; };
 		9D8D0209274E597A008D89AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D8D0207274E597A008D89AD /* LaunchScreen.storyboard */; };
@@ -91,6 +96,11 @@
 		9D4066512756C3770001918D /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		9D4066532756DDF60001918D /* MyolivinRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MyolivinRegular.otf; sourceTree = "<group>"; };
 		9D4066542756DDF70001918D /* MyolivinBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MyolivinBold.otf; sourceTree = "<group>"; };
+		9D40665C275774B60001918D /* CoreDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStorage.swift; sourceTree = "<group>"; };
+		9D40665F275775970001918D /* CoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModel.xcdatamodel; sourceTree = "<group>"; };
+		9D406662275776140001918D /* CharactersResponseStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersResponseStorage.swift; sourceTree = "<group>"; };
+		9D406664275776260001918D /* CoreDataCharactersResponseStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataCharactersResponseStorage.swift; sourceTree = "<group>"; };
+		9D40666727577DC30001918D /* CharactersResponseEntity+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CharactersResponseEntity+Mapping.swift"; sourceTree = "<group>"; };
 		9D8D01F9274E5978008D89AD /* Marvel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Marvel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D8D01FC274E5978008D89AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D8D0205274E597A008D89AD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -191,6 +201,42 @@
 				9DB750D92752F48D00F10473 /* APIRouter.swift */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		9D4066572757746A0001918D /* PersistentStorage */ = {
+			isa = PBXGroup;
+			children = (
+				9D406661275775FF0001918D /* CharactersResponseStorage */,
+				9D406658275774770001918D /* CoreDataStorage */,
+			);
+			path = PersistentStorage;
+			sourceTree = "<group>";
+		};
+		9D406658275774770001918D /* CoreDataStorage */ = {
+			isa = PBXGroup;
+			children = (
+				9D40665C275774B60001918D /* CoreDataStorage.swift */,
+				9D40665E275775970001918D /* CoreDataModel.xcdatamodeld */,
+			);
+			path = CoreDataStorage;
+			sourceTree = "<group>";
+		};
+		9D406661275775FF0001918D /* CharactersResponseStorage */ = {
+			isa = PBXGroup;
+			children = (
+				9D406662275776140001918D /* CharactersResponseStorage.swift */,
+				9D406664275776260001918D /* CoreDataCharactersResponseStorage.swift */,
+				9D40666627577D970001918D /* EntityMapping */,
+			);
+			path = CharactersResponseStorage;
+			sourceTree = "<group>";
+		};
+		9D40666627577D970001918D /* EntityMapping */ = {
+			isa = PBXGroup;
+			children = (
+				9D40666727577DC30001918D /* CharactersResponseEntity+Mapping.swift */,
+			);
+			path = EntityMapping;
 			sourceTree = "<group>";
 		};
 		9D8D01F0274E5978008D89AD = {
@@ -355,6 +401,7 @@
 			children = (
 				9DB750A227524D3B00F10473 /* Respositories */,
 				9DB750DB2752F60B00F10473 /* Network */,
+				9D4066572757746A0001918D /* PersistentStorage */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -644,6 +691,8 @@
 				9D4066322753D84F0001918D /* URLComponents+Auth.swift in Sources */,
 				9D4066522756C3770001918D /* LoadingView.swift in Sources */,
 				9DB750A427524D4600F10473 /* CharactersRepository.swift in Sources */,
+				9D40666827577DC30001918D /* CharactersResponseEntity+Mapping.swift in Sources */,
+				9D406663275776140001918D /* CharactersResponseStorage.swift in Sources */,
 				9DB75098275248E100F10473 /* CharactersGateway.swift in Sources */,
 				9DB750DD2752F63C00F10473 /* CharactersResponseDTO+Mapping.swift in Sources */,
 				9D40664E275564DC0001918D /* Storyboard+Instantiable.swift in Sources */,
@@ -655,11 +704,14 @@
 				9D8D0248274EEE46008D89AD /* CharactersListViewController.swift in Sources */,
 				9DB750CC2752F14100F10473 /* NetworkDispatcher.swift in Sources */,
 				9DB7509B2752495A00F10473 /* CharactersUseCaseFactory.swift in Sources */,
+				9D406665275776260001918D /* CoreDataCharactersResponseStorage.swift in Sources */,
 				9D40663D275427550001918D /* CharactersListFlowCoordinator.swift in Sources */,
 				9DB750A6275291BC00F10473 /* String+Localized.swift in Sources */,
 				9D40663B275420AC0001918D /* CharactersRequestDTO+Mapping.swift in Sources */,
 				9D4066452755536B0001918D /* CharactersQuery.swift in Sources */,
 				9DB750D22752F21500F10473 /* Error+Utils.swift in Sources */,
+				9D40665D275774B60001918D /* CoreDataStorage.swift in Sources */,
+				9D406660275775970001918D /* CoreDataModel.xcdatamodeld in Sources */,
 				9DB750AD2752988900F10473 /* Scheduler.swift in Sources */,
 				9D8D023C274EEA4F008D89AD /* AppFlowCoordinator.swift in Sources */,
 				9DB750A8275294E500F10473 /* AccessibilityIdentifier.swift in Sources */,
@@ -978,6 +1030,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		9D40665E275775970001918D /* CoreDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				9D40665F275775970001918D /* CoreDataModel.xcdatamodel */,
+			);
+			currentVersion = 9D40665F275775970001918D /* CoreDataModel.xcdatamodel */;
+			path = CoreDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 9D8D01F1274E5978008D89AD /* Project object */;
 }

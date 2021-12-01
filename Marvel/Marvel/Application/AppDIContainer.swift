@@ -17,4 +17,9 @@ final class AppDIContainer {
                    publicKey: appConfiguration.apiPublicKey,
                    privateKey: appConfiguration.apiPrivateKey)
     }()
+
+    // MARK: - Persisten Storage
+    lazy var charactersResponseCache: CharactersResponseStorage = {
+        return CoreDataCharactersResponseStorage()
+    }()
 }

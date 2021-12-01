@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19461" systemVersion="21A559" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="CharacterResponseEntity" representedClassName="CharacterResponseEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="desc" optional="YES" attributeType="String"/>
+        <attribute name="id" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" attributeType="String"/>
+        <relationship name="response" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CharactersDataResponseEntity" inverseName="characters" inverseEntity="CharactersDataResponseEntity"/>
+    </entity>
+    <entity name="CharactersDataResponseEntity" representedClassName="CharactersDataResponseEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="count" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="limit" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="offset" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="total" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="characters" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CharacterResponseEntity" inverseName="response" inverseEntity="CharacterResponseEntity"/>
+        <relationship name="response" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CharactersResponseEntity" inverseName="result" inverseEntity="CharactersResponseEntity"/>
+    </entity>
+    <entity name="CharactersRequestEntity" representedClassName="CharactersRequestEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="limit" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="offset" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="query" optional="YES" attributeType="String"/>
+        <relationship name="response" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CharactersResponseEntity" inverseName="request" inverseEntity="CharactersResponseEntity"/>
+    </entity>
+    <entity name="CharactersResponseEntity" representedClassName="CharactersResponseEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="code" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="status" optional="YES" attributeType="String"/>
+        <relationship name="request" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CharactersRequestEntity" inverseName="response" inverseEntity="CharactersRequestEntity"/>
+        <relationship name="result" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CharactersDataResponseEntity" inverseName="response" inverseEntity="CharactersDataResponseEntity"/>
+    </entity>
+    <elements>
+        <element name="CharacterResponseEntity" positionX="79.28125" positionY="-144.359375" width="128" height="103"/>
+        <element name="CharactersDataResponseEntity" positionX="-226.48046875" positionY="-162.87109375" width="197.74609375" height="133"/>
+        <element name="CharactersRequestEntity" positionX="-711.37109375" positionY="-142.67578125" width="165.703125" height="103"/>
+        <element name="CharactersResponseEntity" positionX="-460.63671875" positionY="-132.8046875" width="159.4921875" height="89"/>
+    </elements>
+</model>
