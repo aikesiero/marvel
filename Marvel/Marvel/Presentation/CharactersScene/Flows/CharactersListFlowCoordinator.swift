@@ -12,10 +12,6 @@ protocol CharactersListViewConnector {
     func navigate(to destination: CharactersListNavigationDestination?)
 }
 
-extension CharactersListViewConnector {
-    func navigate(to destination: CharactersListNavigationDestination?) { }
-}
-
 final class CharactersListFlowCoordinator {
 
     struct Dependencies {

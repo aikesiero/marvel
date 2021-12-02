@@ -22,19 +22,19 @@ class AppConfigurationTest: XCTestCase {
         try super.tearDownWithError()
     }
 
-    func test_publicKeyIsGetted() throws {
+    func testPublicKeyIsGetted() throws {
         var apiKey: String?
         apiKey = sut.apiPublicKey
         XCTAssertNotNil(apiKey)
     }
 
-    func test_privateKeyIsGetted() throws {
+    func testPrivateKeyIsGetted() throws {
         var apiKey: String?
         apiKey = sut.apiPrivateKey
         XCTAssertNotNil(apiKey)
     }
 
-    func test_baseURLIsGetted() throws {
+    func testBaseURLIsGetted() throws {
         var baseURL: String?
         baseURL = sut.apiBaseURL
         XCTAssertNotNil(baseURL)
