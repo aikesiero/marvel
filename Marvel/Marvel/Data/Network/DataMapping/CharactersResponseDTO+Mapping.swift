@@ -27,6 +27,13 @@ extension CharactersResponseDTO {
         return result.toDomain()
     }
 
+    func firstElementDTO() -> CharacterDTO? {
+        guard let firsElement = result.characters.first else {
+            return nil
+        }
+        return firsElement
+    }
+
     func firstElement() -> Character? {
         guard let firsElement = result.characters.first else {
             return nil

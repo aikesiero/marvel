@@ -38,7 +38,7 @@ extension CharactersDataResponseEntity {
 
 extension CharacterResponseEntity {
     func toDTO() -> CharacterDTO {
-        return .init(id: Int(id),
+        return .init(id: Int(idCharacter),
                      name: name ?? "",
                      description: desc,
                      thumbnail: thumbnail!.toDTO())
@@ -91,7 +91,7 @@ extension CharactersDataDTO {
 extension CharacterDTO {
     func toEntity(in context: NSManagedObjectContext) -> CharacterResponseEntity {
         let entity: CharacterResponseEntity = .init(context: context)
-        entity.id = Int64(id)
+        entity.idCharacter = Int64(id)
         entity.name = name
         entity.desc = description
         entity.thumbnail = thumbnail?.toEntity(in: context)

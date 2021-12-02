@@ -73,6 +73,8 @@
 		9DDB58C02757D14C0091CBED /* CharacterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDB58BF2757D14C0091CBED /* CharacterDetailViewController.swift */; };
 		9DDB58C22757D6AD0091CBED /* CharacterDetailFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDB58C12757D6AD0091CBED /* CharacterDetailFlowCoordinator.swift */; };
 		9DDB58C42757E1D20091CBED /* UIImageView+Load.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDB58C32757E1D20091CBED /* UIImageView+Load.swift */; };
+		9DDB58C72758DD530091CBED /* CharacterDetailStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDB58C62758DD530091CBED /* CharacterDetailStorage.swift */; };
+		9DDB58CA2758DD940091CBED /* CoreDataCharacterDetailStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDB58C92758DD940091CBED /* CoreDataCharacterDetailStorage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -157,6 +159,8 @@
 		9DDB58BF2757D14C0091CBED /* CharacterDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewController.swift; sourceTree = "<group>"; };
 		9DDB58C12757D6AD0091CBED /* CharacterDetailFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailFlowCoordinator.swift; sourceTree = "<group>"; };
 		9DDB58C32757E1D20091CBED /* UIImageView+Load.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Load.swift"; sourceTree = "<group>"; };
+		9DDB58C62758DD530091CBED /* CharacterDetailStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailStorage.swift; sourceTree = "<group>"; };
+		9DDB58C92758DD940091CBED /* CoreDataCharacterDetailStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataCharacterDetailStorage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,6 +222,7 @@
 		9D4066572757746A0001918D /* PersistentStorage */ = {
 			isa = PBXGroup;
 			children = (
+				9DDB58C52758DD430091CBED /* CharacterDetailStorage */,
 				9D406661275775FF0001918D /* CharactersResponseStorage */,
 				9D406658275774770001918D /* CoreDataStorage */,
 			);
@@ -589,6 +594,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		9DDB58C52758DD430091CBED /* CharacterDetailStorage */ = {
+			isa = PBXGroup;
+			children = (
+				9DDB58C62758DD530091CBED /* CharacterDetailStorage.swift */,
+				9DDB58C92758DD940091CBED /* CoreDataCharacterDetailStorage.swift */,
+			);
+			path = CharacterDetailStorage;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -732,6 +746,7 @@
 				9DB750822751829800F10473 /* CharactersListItemViewModel.swift in Sources */,
 				9D8D023E274EEB42008D89AD /* AppConfiguration.swift in Sources */,
 				9DB750DA2752F48D00F10473 /* APIRouter.swift in Sources */,
+				9DDB58C72758DD530091CBED /* CharacterDetailStorage.swift in Sources */,
 				9DB750872751911000F10473 /* UIViewController+Instantiable.swift in Sources */,
 				9D4066322753D84F0001918D /* URLComponents+Auth.swift in Sources */,
 				9DDB58BC2757CC870091CBED /* GetCharacterUseCase.swift in Sources */,
@@ -756,6 +771,7 @@
 				9DB750A6275291BC00F10473 /* String+Localized.swift in Sources */,
 				9D40663B275420AC0001918D /* CharactersRequestDTO+Mapping.swift in Sources */,
 				9D4066452755536B0001918D /* CharactersQuery.swift in Sources */,
+				9DDB58CA2758DD940091CBED /* CoreDataCharacterDetailStorage.swift in Sources */,
 				9DB750D22752F21500F10473 /* Error+Utils.swift in Sources */,
 				9D40665D275774B60001918D /* CoreDataStorage.swift in Sources */,
 				9D406660275775970001918D /* CoreDataModel.xcdatamodeld in Sources */,

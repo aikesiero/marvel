@@ -11,12 +11,16 @@ import Combine
 final class CharactersRepository {
 
     private var network: APINetwork
-    private let cache: CharactersResponseStorage
+    private let cacheResponse: CharactersResponseStorage
+    private let cacheCharacter: CharacterDetailStorage
     private var cancellable: AnyCancellable?
 
-    init(network: APINetwork, cache: CharactersResponseStorage) {
+    init(network: APINetwork,
+         cacheResponse: CharactersResponseStorage,
+         cacheCharacter: CharacterDetailStorage) {
         self.network = network
-        self.cache = cache
+        self.cacheResponse = cacheResponse
+        self.cacheCharacter = cacheCharacter
     }
 }
 
@@ -42,7 +46,7 @@ extension CharactersRepository: CharactersGateway {
                 guard response.result.characters.count > 0 else {
                     return promise(.failure(.noResults))
                 }
-                self?.cache.save(response: response, for: requestDTO)
+                self?.cacheResponse.save(response: response, for: requestDTO)
                 return promise(.success(response.toDomain()))
             }
 
@@ -55,7 +59,7 @@ extension CharactersRepository: CharactersGateway {
                  }
             }
 
-            self?.cancellable = self?.cache.getResponse(for: requestDTO)
+            self?.cancellable = self?.cacheResponse.getResponse(for: requestDTO)
                 .sink(receiveCompletion: fetchCacheCompletionHandler,
                       receiveValue: fetchValueHandler)
 
@@ -73,17 +77,31 @@ extension CharactersRepository: CharactersGateway {
                  }
             }
 
-            let fetchValueHandler: (CharactersResponseDTO) -> Void = { response in
+            let fetchValueHandler: (CharacterDTO) -> Void = { response in
+                self?.cacheCharacter.save(character: response)
+                return promise(.success(response.toDomain()))
+            }
 
-                guard let character = response.firstElement() else {
+            let fetchResponseHandler: (CharactersResponseDTO) -> Void = { response in
+                guard let characterDTO = response.firstElementDTO(),
+                      let character = response.firstElement() else {
                     return promise(.failure(.noResults))
                 }
+                self?.cacheCharacter.save(character: characterDTO)
                 return promise(.success(character))
             }
 
-            self?.cancellable = self?.network
-                .getCharacter(with: id)
-                .sink(receiveCompletion: fetchCompletionHandler,
+            let fetchCacheCompletionHandler: (Subscribers.Completion<CoreDataStorageError>) -> Void = { completion in
+                 if case .failure = completion {
+                     self?.cancellable = self?.network
+                         .getCharacter(with: id)
+                         .sink(receiveCompletion: fetchCompletionHandler,
+                               receiveValue: fetchResponseHandler)
+                 }
+            }
+
+            self?.cancellable = self?.cacheCharacter.getCharacter(for: id)
+                .sink(receiveCompletion: fetchCacheCompletionHandler,
                       receiveValue: fetchValueHandler)
 
         }

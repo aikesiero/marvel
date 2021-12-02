@@ -22,4 +22,8 @@ final class AppDIContainer {
     lazy var charactersResponseCache: CharactersResponseStorage = {
         return CoreDataCharactersResponseStorage()
     }()
+
+    lazy var characterDetailCache: CharacterDetailStorage = {
+        return CoreDataCharacterDetailStorage()
+    }()
 }

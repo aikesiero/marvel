@@ -22,7 +22,8 @@ final class AppFlowCoordinator {
     func start() {
         let characterListDependencies =
         CharactersListFlowCoordinator.Dependencies(apiNetwork: appDIContainer.apiNetwork,
-                                                   cache: appDIContainer.charactersResponseCache)
+                                                   cacheResponse: appDIContainer.charactersResponseCache,
+                                                   cacheCharacter: appDIContainer.characterDetailCache)
         let flow = CharactersListFlowCoordinator(navigationController: navigationController,
                                       dependencies: characterListDependencies)
 

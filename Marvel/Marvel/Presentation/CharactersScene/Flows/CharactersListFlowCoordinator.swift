@@ -16,7 +16,8 @@ final class CharactersListFlowCoordinator {
 
     struct Dependencies {
         let apiNetwork: APINetwork
-        let cache: CharactersResponseStorage
+        let cacheResponse: CharactersResponseStorage
+        let cacheCharacter: CharacterDetailStorage
     }
 
     private var navigationController: UINavigationController
@@ -29,7 +30,9 @@ final class CharactersListFlowCoordinator {
     }
 
     func start() {
-        let repo = CharactersRepository(network: dependencies.apiNetwork, cache: dependencies.cache)
+        let repo = CharactersRepository(network: dependencies.apiNetwork,
+                                        cacheResponse: dependencies.cacheResponse,
+                                        cacheCharacter: dependencies.cacheCharacter)
         let useCaseFactory = CharactersUseCaseFactory(charactersGateway: repo)
         let viewModel = CharactersListViewModel(charactersUseCaseFactory: useCaseFactory, flowCoordinator: self)
         let viewController = CharactersListViewController.create(with: viewModel)
@@ -42,7 +45,8 @@ final class CharactersListFlowCoordinator {
             case let .detail(index):
                 let characterDetailDependencies =
                 CharacterDetailFlowCoordinator.Dependencies(apiNetwork: dependencies.apiNetwork,
-                                                            cache: dependencies.cache)
+                                                            cacheResponse: dependencies.cacheResponse,
+                                                            cacheCharacter: dependencies.cacheCharacter)
                 let flow = CharacterDetailFlowCoordinator(navigationController: navigationController,
                                                           dependencies: characterDetailDependencies,
                                                           idCharacter: index)
