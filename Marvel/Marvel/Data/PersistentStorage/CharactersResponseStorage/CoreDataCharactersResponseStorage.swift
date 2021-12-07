@@ -9,7 +9,7 @@ import Foundation
 import CoreData
 import Combine
 
-final class CoreDataCharactersResponseStorage {
+class CoreDataCharactersResponseStorage {
 
     private let coreDataStorage: CoreDataStorage
 

@@ -12,7 +12,7 @@ protocol CharactersListViewConnector {
     func navigate(to destination: CharactersListNavigationDestination?)
 }
 
-final class CharactersListFlowCoordinator {
+class CharactersListFlowCoordinator {
 
     struct Dependencies {
         let apiNetwork: APINetwork

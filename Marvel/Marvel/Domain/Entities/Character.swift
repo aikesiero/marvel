@@ -16,7 +16,7 @@ struct Character: Equatable, Identifiable {
 }
 
 struct CharactersPage: Equatable {
-    let page: Int
+    var page: Int
     let totalPages: Int
     let characters: [Character]
 }

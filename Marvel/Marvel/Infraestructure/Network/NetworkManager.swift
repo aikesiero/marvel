@@ -11,7 +11,7 @@ import Combine
 class NetworkManager: NetworkDispatcher {
 
     var baseURL: String
-    let session: URLSession
+    var session: URLSession
 
     public init(baseURL: String) {
         self.baseURL = baseURL
