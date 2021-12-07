@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="MyolivinRegular.otf">
+            <string>MyOlivin-Regular</string>
+        </array>
+        <array key="marvel-font.otf">
+            <string>BentonSansExtraComp-Black</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Character Detail View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController id="Y6W-OH-hqX" customClass="CharacterDetailViewController" customModule="Marvel" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0nr-OD-NJ2">
+                                <rect key="frame" x="0.0" y="448" width="414" height="60"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="bva-2e-OKb">
+                                        <rect key="frame" x="15" y="13.5" width="384" height="33"/>
+                                        <fontDescription key="fontDescription" name="BentonSansExtraComp-Black" family="BentonSans ExtraComp Black" pointSize="35"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" name="mainColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="9SC-6m-Ubo"/>
+                                    <constraint firstAttribute="trailing" secondItem="bva-2e-OKb" secondAttribute="trailing" constant="15" id="vW5-Js-bb5"/>
+                                    <constraint firstItem="bva-2e-OKb" firstAttribute="centerY" secondItem="0nr-OD-NJ2" secondAttribute="centerY" id="yQt-PI-HYV"/>
+                                    <constraint firstItem="bva-2e-OKb" firstAttribute="leading" secondItem="0nr-OD-NJ2" secondAttribute="leading" constant="15" id="zqv-ej-NGe"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6mz-Z4-aFB">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="448"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zYR-4v-SCs">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="448"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="zYR-4v-SCs" secondAttribute="bottom" id="4rG-Kq-6ws"/>
+                                    <constraint firstItem="zYR-4v-SCs" firstAttribute="top" secondItem="6mz-Z4-aFB" secondAttribute="top" id="9Nf-D7-NK4"/>
+                                    <constraint firstAttribute="trailing" secondItem="zYR-4v-SCs" secondAttribute="trailing" id="Xdh-ip-EbV"/>
+                                    <constraint firstItem="zYR-4v-SCs" firstAttribute="leading" secondItem="6mz-Z4-aFB" secondAttribute="leading" id="ohL-Tz-wAi"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="asdf" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bKe-Cy-WU0">
+                                <rect key="frame" x="20" y="528" width="374" height="24"/>
+                                <fontDescription key="fontDescription" name="MyOlivin-Regular" family="My Olivin" pointSize="24"/>
+                                <color key="textColor" name="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.10000000000000001" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="Nc8-Vg-vA7">
+                                <rect key="frame" x="30" y="508" width="354" height="388"/>
+                                <color key="tintColor" name="AccentColor"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" name="backgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="0nr-OD-NJ2" firstAttribute="top" secondItem="6mz-Z4-aFB" secondAttribute="bottom" id="2bZ-aH-wVb"/>
+                            <constraint firstItem="0nr-OD-NJ2" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="6Oe-L5-abV"/>
+                            <constraint firstAttribute="trailing" secondItem="Nc8-Vg-vA7" secondAttribute="trailing" constant="30" id="7ei-uk-AEr"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="bKe-Cy-WU0" secondAttribute="trailing" constant="20" id="7oD-MM-xNg"/>
+                            <constraint firstItem="Nc8-Vg-vA7" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="Blb-TK-52A"/>
+                            <constraint firstItem="6mz-Z4-aFB" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="MSd-1I-2Ie"/>
+                            <constraint firstItem="bKe-Cy-WU0" firstAttribute="top" secondItem="0nr-OD-NJ2" secondAttribute="bottom" constant="20" id="N9V-bW-69I"/>
+                            <constraint firstAttribute="bottom" secondItem="Nc8-Vg-vA7" secondAttribute="bottom" id="W0A-ou-kGN"/>
+                            <constraint firstItem="6mz-Z4-aFB" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="b3y-br-W1y"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="0nr-OD-NJ2" secondAttribute="trailing" id="cdS-Ac-CGe"/>
+                            <constraint firstItem="bKe-Cy-WU0" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="dGo-Bf-M9E"/>
+                            <constraint firstItem="Nc8-Vg-vA7" firstAttribute="top" secondItem="0nr-OD-NJ2" secondAttribute="bottom" id="ieg-uf-SdJ"/>
+                            <constraint firstItem="6mz-Z4-aFB" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="qmz-dk-SLo"/>
+                            <constraint firstItem="6mz-Z4-aFB" firstAttribute="height" secondItem="5EZ-qb-Rvc" secondAttribute="height" multiplier="1:2" id="z4J-hI-zcb"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="yy5-TH-nBt"/>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="bKe-Cy-WU0" id="NOS-gj-X8h"/>
+                        <outlet property="imageView" destination="zYR-4v-SCs" id="Jgi-LF-zdE"/>
+                        <outlet property="nameLabel" destination="bva-2e-OKb" id="NfU-5M-EpN"/>
+                        <outlet property="nameView" destination="0nr-OD-NJ2" id="hgP-vK-KdN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="45.535714285714285"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="logo" width="694.5" height="286"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="backgroundColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="mainColor">
+            <color red="0.9089999794960022" green="0.10199999809265137" blue="0.11500000208616257" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="textColor">
+            <color red="0.21199999749660492" green="0.21199999749660492" blue="0.21199999749660492" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

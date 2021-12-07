@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  Marvel
+
+  Created by Aike Fernández Roza on 25/11/21.
+  
+*/
+
+"Characters" = "Characters";
+"SearchPlaceholder" = "Search Character";
+"SearchResults" = "Search results";
+"NoResults" = "No Results found";
+"Detail" = "Detail";
